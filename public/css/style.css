@@ -1,3 +1,15 @@
+/*
+ * bootstrap-stylus 0.2.0
+ * Date: Fri Nov 25 13:11:45 PST 2011
+ *
+ * Copyright 2011 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Originally by @twitter by @mdo and @fat.
+ *
+ * Stylus conversion by Michael Prasuhn.
+ */
 html,
 body {
   margin: 0;
@@ -1283,6 +1295,10 @@ table .headerSortUp:after {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  filter: alpha(opacity=60);
+  -khtml-opacity: 0.6;
+  -moz-opacity: 0.6;
+  opacity: 0.6;
 }
 table .blue {
   color: #049cdb;

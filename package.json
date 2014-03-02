@@ -1,20 +1,28 @@
 {
-    "name": "sideproject",
-  	"version": "0.0.1",
-  	"dependencies": {
-        "bootstrap-stylus": "latest",
-        "connect-flash": "latest",
-        "debug": "latest",
-        "express": "3.0.x",
-        "jade": ">= 0.0.1",
-        "mongode": "latest",
-        "passport": "latest",
-        "passport-local": "latest",
-        "stylus": "latest",
-        "underscore": "latest"
-  	},
-    "engines": {
-      "node": "0.8.x",
-      "npm": "1.1.x"
-    }
+  "name": "sideproject",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap-stylus": "latest",
+    "connect-flash": "latest",
+    "debug": "latest",
+    "express": "3.0.x",
+    "jade": ">= 0.0.1",
+    "mongode": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "stylus": "latest",
+    "underscore": "latest",
+    "uuid-v4": "~0.1.0",
+    "dateformat": "~1.0.7-1.2.3",
+    "expect": "0.0.2",
+    "superagent": "~0.16.0",
+    "async": "~0.2.10",
+    "underscore.string": "~2.3.3",
+    "nodemailer": "~0.6.1",
+    "longjohn": "~0.2.2"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
 }

@@ -1,6 +1,15 @@
 // Globals
 
-_ = require('underscore')
+
+_ = require('underscore');
+
+require('longjohn');
+
+
+process.on('uncaughtException', function (err) {
+    console.log('uncaught:' + err);
+    console.log(err.stack);
+});
 
 // Module Deps
 
@@ -12,6 +21,10 @@ var bootstrap = require('bootstrap-stylus')
 var config = require('./config')
 var auth = require('./lib/auth')
 var users = require('./models/users')
+
+var async = require('async');
+
+var models = require('./models');
 
 // Configuration
 
@@ -42,13 +55,166 @@ app.configure(function(){
 
 app.configure('development', function(){
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true })) 
-})
+});
 
 app.configure('production', function(){
     app.use(express.errorHandler()) 
-})
+});
+
+//-----------------------------------------------------------------------------
+// Notifications
+//-----------------------------------------------------------------------------
+
+app.on('sponsorship created', function (sponsor, member) {
+    console.log('sponsor', sponsor, 'member', member);
+    models.members.findById(member, function (err, member) {
+        if (err)
+            return console.log('err:' + err);
+        if (!member)
+            return console.log('there is no member');
+        if (member)
+            return console.log('there is a member');
+    });
+});
+
+app.on('sponsorship removed', function (sponsor, member) {
+
+});
+
+app.on('book request', function () { 
+
+});
+
+app.on('employee signup', function () {
+
+});
+
+app.on('buddy signup', function () {
+
+});
+
+app.on('forgot password', function () {
+
+});
 
 // Setup Routes
+
+var models = require('./models');
+
+
+
+//-----------------------------------------------------------------------------
+// Employee: 
+//-----------------------------------------------------------------------------
+
+// create employee
+app.post('/employee', function (req, res) {
+    console.log(typeof req.body, req.body);
+    models.employees.create(req.body, function (err, created) {
+        if (err)
+            res.send(err.message);
+        else
+            res.send('created!');
+    });
+
+});
+
+// update an employee
+app.put('/employee', function (req, res) {
+    // 
+});
+
+// get an employee
+app.get('/employee', function (req, res) {
+    // 
+});
+
+//-----------------------------------------------------------------------------
+// Sponsorships
+//-----------------------------------------------------------------------------
+
+app.post('/sponsorships', function (req, res) {
+    var sponsor = req.body.sponsor, sponsored = req.body.sponsored;
+    if (sponsored && typeof sponsored == 'string')
+        sponsored = [sponsored];
+    if (!sponsored.length) 
+        return res.send('nothing to do');
+
+    async.each(
+        sponsored, 
+        function (member, callback) {
+            models.sponsorships.create({sponsor: sponsor, sponsored: member}, function (err) {
+                if (!err) { 
+                    console.log('sponsor', sponsor, 'member', member);
+                    app.emit('sponsorship created', sponsor, member);
+                }
+                callback(err);
+            });
+        },
+        function (err) {
+            if (err)
+                res.send(''+err);
+            else
+                res.send('created sponsorship');
+        });
+
+});
+
+//-----------------------------------------------------------------------------
+// Airport autocomplete
+//-----------------------------------------------------------------------------
+
+app.get('/foo', function (req, res) {
+    res.send(['SFO', 'PIT', 'JFK', 'NYC', 'IAD', 'SJC']);
+});
+
+//-----------------------------------------------------------------------------
+// Flights: Search
+//-----------------------------------------------------------------------------
+
+app.get('/flights/:from-:to/:date', function (req, res) {
+
+    // from
+    // to
+    // yyyy-mm-dd
+
+    models.trip.fake({source: req.params.from, destination: req.params.to}, function (err, trips) {
+        if (err)
+            res.send(''+err);
+        else 
+            res.send(trips);
+    });
+
+});
+
+// family signup
+
+// create member
+app.post('/member', function (req, res) {
+    // 
+    console.log(typeof req.body, req.body);
+    models.members.create(req.body, function (err, created) {
+        if (err)
+            res.send(err.message);
+        else
+            res.send('created!');
+    });
+
+
+});
+
+// get an user
+app.get('/member/:id', function (req, res) {
+    models.members.findById(req.params.id, function (err, member) {
+        if (err)
+            res.send(''+err);
+        else
+            res.send(member);
+    });
+});
+
+
+
 
 app.get('/', function(req, res) {
     res.render('index', {
@@ -132,8 +298,13 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+
+
+
+
 var PORT = process.env.PORT || 3000
 app.listen(PORT)
 console.log("Express server listening on port %d in %s mode", PORT, app.get('env'))
+
 
 module.exports = app

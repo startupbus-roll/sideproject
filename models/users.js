@@ -22,4 +22,10 @@ users.create = function (user, callback) {
     })
 }
 
+users.update = function (user, callback) {
+
+    
+
+};
+
 module.exports = users
