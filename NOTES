@@ -1,0 +1,28 @@
+resources
+
+/flights/FROM-TO/date:
+- does a search
+  - one way
+  - 
+
+/member:
+- has 
+
+/employees: is-a user
+- create, get and modify employees
+- add family member
+- remove family member
+
+
+
+--
+
+/invite
+
+-- create an invitatin
+-- should only be used once
+
+
+/
+
+http://www.kayak.com/flights/PIT-NYC/2014-03-12
