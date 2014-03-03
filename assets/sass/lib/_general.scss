@@ -3,7 +3,8 @@
 // --------------------------------------------------
 
 .container {
-	margin: $padding-large-horizontal auto;
+	margin: 0 auto;
+	padding: 0 $padding-large-horizontal*2;
 	max-width: 481px;
 }
  

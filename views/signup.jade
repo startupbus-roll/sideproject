@@ -2,11 +2,11 @@ extends layout
 
 block header
     .container
-      img.logo(src='/assets/images/logo.png', alt='Roll Logo')
-      form.form-signin
-        h2.form-signin-heading Get Rollin'.
-        p.lead Hey employee, sign up for an account
-
+        img.logo(src='/assets/images/logo.png', alt='Roll Logo')
+        .well.well-sm
+            p.lead Hey, Employee!
+            p Sign up to search flights and add friends and family to your buddies list. 
+            p Already a member? Login.    
 block content
     .container
       form.form-signin(action="/signup", method="post")
@@ -17,7 +17,7 @@ block content
           input.form-control(name="password", type='password', placeholder='Password', required='', autofocus='')
           input.form-control(name="password_confirmation", type='password', placeholder='Confirmation', required='', autofocus='')
 
-          select(name="airline")
+          select(name="airline").form-control
             option Delta
             option AA
           //- input.form-control(type='email', placeholder='Work email', required='', autofocus='')

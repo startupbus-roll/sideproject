@@ -4,8 +4,8 @@
 
 .logo {
 	display: block;
-	max-width: 90%;
-	margin: $padding-large-vertical auto 0;
+	max-width: 60%;
+	margin: $padding-small-vertical auto 0;
 }
 
 body {
@@ -33,7 +33,9 @@ body {
 
 // Login and sign up
 
-
+.flash-container {
+	margin: 0;
+}
 
 
 // Search
@@ -77,13 +79,9 @@ body {
 // TODO: Sass-ify this:
 
 .form-signin {
-	max-width: 330px;
-	padding: 15px;
+	// max-width: 330px;
+	// padding: 0 15px 15px;
 	margin: 0 auto;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-	margin-bottom: 10px;
 }
 .form-signin .checkbox {
 	font-weight: normal;

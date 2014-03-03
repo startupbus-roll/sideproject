@@ -7594,16 +7594,17 @@ button.close {
 }
 /* line 5, ../sass/lib/_general.scss */
 .container {
-  margin: 16px auto;
+  margin: 0 auto;
+  padding: 0 32px;
   max-width: 481px;
 }
 
-/* line 12, ../sass/lib/_general.scss */
+/* line 13, ../sass/lib/_general.scss */
 .ro-form-help {
   padding-top: 10px;
 }
 
-/* line 19, ../sass/lib/_general.scss */
+/* line 20, ../sass/lib/_general.scss */
 .ro-full-width, .ro-list .list-group-item:first-child, .ro-list .list-group-item:last-child {
   border-radius: 0;
 }
@@ -7611,13 +7612,18 @@ button.close {
 /* line 5, ../sass/lib/_app.scss */
 .logo {
   display: block;
-  max-width: 90%;
-  margin: 10px auto 0;
+  max-width: 60%;
+  margin: 5px auto 0;
 }
 
 /* line 11, ../sass/lib/_app.scss */
 body {
   font-family: sans-serif;
+}
+
+/* line 36, ../sass/lib/_app.scss */
+.flash-container {
+  margin: 0;
 }
 
 /* line 21, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.1.0.2/vendor/assets/stylesheets/bootstrap/_mixins.scss */
@@ -7630,25 +7636,17 @@ body {
   clear: both;
 }
 
-/* line 79, ../sass/lib/_app.scss */
+/* line 81, ../sass/lib/_app.scss */
 .form-signin {
-  max-width: 330px;
-  padding: 15px;
   margin: 0 auto;
 }
 
-/* line 85, ../sass/lib/_app.scss */
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-  margin-bottom: 10px;
-}
-
-/* line 88, ../sass/lib/_app.scss */
+/* line 86, ../sass/lib/_app.scss */
 .form-signin .checkbox {
   font-weight: normal;
 }
 
-/* line 91, ../sass/lib/_app.scss */
+/* line 89, ../sass/lib/_app.scss */
 .form-signin .form-control {
   position: relative;
   font-size: 16px;
@@ -7659,19 +7657,19 @@ body {
   box-sizing: border-box;
 }
 
-/* line 100, ../sass/lib/_app.scss */
+/* line 98, ../sass/lib/_app.scss */
 .form-signin .form-control:focus {
   z-index: 2;
 }
 
-/* line 103, ../sass/lib/_app.scss */
+/* line 101, ../sass/lib/_app.scss */
 .form-signin input[type="text"] {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-/* line 108, ../sass/lib/_app.scss */
+/* line 106, ../sass/lib/_app.scss */
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
