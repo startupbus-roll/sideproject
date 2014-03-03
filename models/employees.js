@@ -47,7 +47,7 @@ employees.create = function (employee, callback) {
         links: [],
         website: null,
         projects: [], // array of project document _ids
-        airline: null // verify airline
+        airline: null 
     });
 
     console.log(typeof employee, employee);

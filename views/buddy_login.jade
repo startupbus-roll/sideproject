@@ -1,13 +1,15 @@
 extends layout
 
 block content
-    h1 Login
-    form#login-form(action="/buddy/login", method="post")
-        div
-            label Email:
-            input(type="text", name="email")
-        div
-            label Password:
-            input(type="password", name="password")
-        div
-            input(type="submit", value="Log In")
+    .container.text-center
+      img.logo(src='../assets/images/logo.png', alt='Roll Logo')
+      form.form-signin
+        h3.form-signin-heading Hey Buddy
+        p.lead Please sign in.
+        input.form-control(type='text', placeholder='Email address', required='', autofocus='')
+        input.form-control(type='password', placeholder='Password', required='')
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+      p.text-center
+        a(href='#') Forgot your password?
+      .alert.alert-danger
+        p Oops, incorrect login.

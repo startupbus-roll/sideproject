@@ -1,13 +1,14 @@
 extends layout
 
 block content
-    h1 Hey Employee!
-    form#login-form(action="/employee/login", method="post")
-        div
-            label Email:
-            input(type="text", name="email")
-        div
-            label Password:
-            input(type="password", name="password")
-        div
-            input(type="submit", value="Log In")
+
+    .container.text-center
+      img.logo(src='/assets/images/logo.png', alt='Roll Logo')
+      form.form-signin
+        h2.form-signin-heading Hey Employee
+        p.lead Please sign in.
+        input.form-control(type='text', placeholder='Email address')
+        input.form-control(type='password', placeholder='Password')
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+      p.text-center
+        a(href='dashboard.php') Forgot your password?
