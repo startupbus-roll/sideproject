@@ -23,25 +23,25 @@ head
 
 body
 
-//- block header
-//-     h1: a(href='/') Sideproject. 
-//-     ul#header-nav
-//-       - if (typeof user === 'undefined')
-//-           li: a(href='/signup') Sign Up
-//-           li: a(href='/login') Log In
-//-       - else
-//-           li: a(href='/me')= user.email
-//-           li: a(href='/logout') Sign Out
+block header
+    //- h1: a(href='/') Sideproject. 
+    //- ul#header-nav
+    //-   - if (typeof user === 'undefined')
+    //-       li: a(href='/signup') Sign Up
+    //-       li: a(href='/login') Log In
+    //-   - else
+    //-       li: a(href='/me')= user.email
+    //- li: a(href='/logout') Sign Out
 
-//- block flash
-//-   - if (typeof flash !== 'undefined')
-//-       #flash-messages
-//-           if flash.success
-//-             #flash.success #{flash.success[0]}
-//-           if flash.info
-//-             #flash.info #{flash.info[0]}
-//-           if flash.error
-//-             #flash.error #{flash.error[0]}
+block flash
+  - if (typeof flash !== 'undefined')
+      #flash-messages
+          if flash.success
+            #flash.success #{flash.success[0]}
+          if flash.info
+            #flash.info #{flash.info[0]}
+          if flash.error
+            #flash.error #{flash.error[0]}
 
 block content
   h2 Content
