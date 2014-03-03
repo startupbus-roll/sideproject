@@ -57,15 +57,16 @@ app.configure(function(){
         }
     }));
 
-    app.use('/assets/stylesheets', sass.middleware({
-        src:  __dirname + '/assets/sass',
-        debug: true,
-        compile: function (str, path) {
-            return sass(str)
-                .set('filename', path)
-                .use(bootstrap_sass());
-        }
-    }));
+    // app.use('/assets/stylesheets', sass.middleware({
+    //     src:  __dirname + '/assets/sass',
+    //     debug: true,
+    //     compile: function (str, path) {
+    //         return sass(str)
+    //             .set('filename', path)
+    //             .use(bootstrap_sass());
+    //     }
+    // }));
+    app.use('/assets', express.static(__dirname + '/assets'));
 
     app.use('/public', express.static(__dirname + '/public'));
 })
