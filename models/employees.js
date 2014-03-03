@@ -14,10 +14,6 @@ function verify_employee (employee, callback) {
         verification.reason = 'Please specify an airline.';
     else if (!employee.email)
         verification.reason = 'Please provide an email address';
-    else if (!employee.password)
-        verification.reason = 'Please specify a password.';
-    else if (employee.password != employee.password_confirmation)
-        verification.reason = "Your passwords don't match.";
 
     if (verification.reason)
         verification.invalid = true;
