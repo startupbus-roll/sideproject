@@ -1,15 +1,20 @@
 extends layout
 
 block content
-    .container.text-center
+    .container
       img.logo(src='../assets/images/logo.png', alt='Roll Logo')
       form.form-signin
-        h3.form-signin-heading Hey Buddy
-        p.lead Please sign in.
+
+        //- TODO: only show the welcome info on first login?
+        p.lead Hey Buddy!
+        .well.well-sm
+            p Sign in using your email and the secure password you received via email.
         input.form-control(type='text', placeholder='Email address', required='', autofocus='')
         input.form-control(type='password', placeholder='Password', required='')
         button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
-      p.text-center
-        a(href='#') Forgot your password?
-      .alert.alert-danger
-        p Oops, incorrect login.
+
+        p.text-center.ro-form-help
+            a(href='#') Forgot your password?
+      
+        .alert.alert-danger
+            p Oops, incorrect login.

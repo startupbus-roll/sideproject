@@ -11,13 +11,29 @@
 // Colors
 // -------------------------
 
-$brand-primary:         #428bca;
+$ro-grey: 				#494949;
+$ro-white: 				#f3f3f3;
+$ro-lblue: 				#acdfee;
+$ro-teal: 				#409dae;
+$ro-dteal: 				#0b4e5a;
+
+$brand-primary:         $ro-teal;
 
 $brand-success:         #5cb85c;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
-$brand-info:            #5bc0de;
+$brand-info:            $ro-lblue;
+
+$alert-info-bg: 		lighten($ro-lblue, 15%);
 
 $link-color:            $brand-primary;
 
-$btn-default-color:              #333 !default;
+$btn-default-color: 	$ro-teal;
+$btn-primary: 			$ro-dteal;
+
+
+
+// Margins & Padding
+// -------------------------
+
+$alert-padding:               10px;
