@@ -109,7 +109,13 @@ app.on('employee signup', function (employee) {
         from: 'noreply@rollout.com',
         to: 'seye.ojumu@gmail.com',
         subject: 'Hello',
-        text: 'Please confirm your email address'
+        text: [
+        'Hi ' + employee.name + ',',
+        '',
+        'Welcome to Roll.',
+        '',
+        'Your password is: This is a bad password.', 
+        ''].join('\n')
     };
 
     require('./lib/mail').send(payload, function (err) {
@@ -357,7 +363,7 @@ app.get('/buddy/login', function (req, res) {
     });
 });
 
-app.post('/employee/login', auth.authenticate({failureRedirect: '/employee/login', successFlash: 'Login successful!'}), function (req, res) {
+app.post('/employee/login', auth.authenticate_employee('local', {failureRedirect: '/employee/login', successFlash: 'Login successful!', failureFlash: "who are you?"}), function (req, res) {
     res.redirect('/')
 });
 

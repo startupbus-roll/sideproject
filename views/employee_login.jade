@@ -1,12 +1,21 @@
 extends layout
 
-block content
+block header
 
     .container.text-center
       img.logo(src='/assets/images/logo.png', alt='Roll Logo')
+      h2.form-signin-heading Hey Employee
+      p.lead Please sign in.
+
+
+
+
+block content
+
+    #{JSON.stringify(flash)}
+
+    .container.text-center
       form.form-signin
-        h2.form-signin-heading Hey Employee
-        p.lead Please sign in.
         input.form-control(type='text', placeholder='Email address')
         input.form-control(type='password', placeholder='Password')
         button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
