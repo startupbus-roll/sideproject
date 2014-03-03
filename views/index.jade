@@ -2,16 +2,19 @@ extends layout
 
 block content
 
-	.container
+	.container.ro-dashboard
 		img.logo(src='assets/images/logo.png', alt='Roll Logo')
-		p.lead Are you a...
-		a.btn.btn-lg.btn-primary.btn-block(href="/employee/login") Employee
+		hr
+		
+		.alert
+			p.lead Welcome! Time to roll out.
+			p Roll is simplifies the standby flight process for airline employees and their buddies.
+		hr
+		
+		.well.well-sm
+			p.ro-form-help Sign in as an airline employee to search for flights for standby and add buddies to your list.
+		
+		a.btn.btn-lg.btn-info.btn-block(href="/employee/login") Employee
+		
 		br
 		a.btn.btn-lg.btn-primary.btn-block(href="/buddy/login") Buddy
-
-
-block content
-	#hero
-		h1 Sideproject helps you be awesome.
-		button Start a Project
-		button Find a Project

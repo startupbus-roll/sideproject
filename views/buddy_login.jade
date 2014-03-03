@@ -7,15 +7,19 @@ block content
         .well.well-sm
             p.lead Hey, Buddy!
             p Sign in using your email and the secure password you received via email.
-        form.form-signin
-            .alert.alert-danger
-                p Oops, incorrect login.
-            //- TODO: only show the welcome info on first login?
+            p Don't have a login? An airline employee can give you access.
+        
+        form.ro-form-signin
             
-            input.form-control(type='text', placeholder='Email address', required='', autofocus='')
-            input.form-control(type='password', placeholder='Password', required='')
+            .alert.alert-danger
+                small Oops, incorrect login.
+            
+            .ro-input-group
+                input.form-control(type='text', placeholder='Email address', required='')
+                input.form-control(type='password', placeholder='Password', required='')
             
             button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
         br
+
         p.text-center
                 a(href='#') Forgot your password?

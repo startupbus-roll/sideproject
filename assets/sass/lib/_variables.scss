@@ -20,7 +20,7 @@ $ro-dteal: 				#0b4e5a;
 $brand-primary:         $ro-teal;
 
 $brand-success:         #5cb85c;
-$brand-warning:         #f0ad4e;
+$brand-warning:         #fdb813;
 $brand-danger:          #d9534f;
 $brand-info:            $ro-lblue;
 
@@ -28,8 +28,9 @@ $alert-info-bg: 		lighten($ro-lblue, 15%);
 
 $link-color:            $brand-primary;
 
-$btn-default-color: 	$ro-teal;
+$btn-default-bg: 		$ro-teal;
 $btn-primary: 			$ro-dteal;
+$btn-warning: 			$brand-warning;
 
 
 

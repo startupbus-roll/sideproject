@@ -2,20 +2,28 @@ extends layout
 
 block header
 
-    .container.text-center
-      img.logo(src='/assets/images/logo.png', alt='Roll Logo')
-      h2.form-signin-heading Hey Employee
-      p.lead Please sign in.
+    .container
+        img.logo(src='/assets/images/logo.png', alt='Roll Logo')
+        br
+        .well.well-sm
+            p.lead Hey, Employee!
+            p Sign up to search flights and add friends and family to your buddies list. Already a member? 
+                a Login here.
 
 
 block content
 
-    #{JSON.stringify(flash)}
+    .container
+        
+        #{JSON.stringify(flash)}
 
-    .container.text-center
-      form.form-signin(action="/employee/login", method="POST")
-        input.form-control(type='text', placeholder='Email address')
-        input.form-control(type='password', placeholder='Password')
+        form.form-signin(action="/employee/login", method="POST")
+
+            .ro-input-group
+                input.form-control(type='text', placeholder='Email address')
+                input.form-control(type='password', placeholder='Password')
+            
         button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
-      p.text-center
-        a(href='dashboard.php') Forgot your password?
+        br
+        p.text-center
+            a(href='dashboard.php') Forgot your password?

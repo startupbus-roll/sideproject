@@ -4,14 +4,15 @@
 
 .container {
 	margin: 0 auto;
-	padding: 0 $padding-large-horizontal*2;
-	max-width: 481px;
+	max-width: 560px;
 }
+ 
  
 // Forms
 
 .ro-form-help {
 	padding-top: $padding-small-horizontal;
+	color: $gray;
 }
 
 

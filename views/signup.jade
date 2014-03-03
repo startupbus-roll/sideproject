@@ -1,29 +1,33 @@
 extends layout
 
 block header
-    .container
-        img.logo(src='/assets/images/logo.png', alt='Roll Logo')
-        .well.well-sm
-            p.lead Hey, Employee!
-            p Sign up to search flights and add friends and family to your buddies list. 
-            p Already a member? Login.    
+	.container
+		img.logo(src='/assets/images/logo.png', alt='Roll Logo')
+		br
+		.well.well-sm
+			p.lead Hey, Employee!
+			p Sign up to search flights and add friends and family to your buddies list. 
+
 block content
-    .container
-      form.form-signin(action="/signup", method="post")
-        .input-group
-
-          input.form-control(name="name", type='text',  placeholder='Name', autofocus='')
-          input.form-control(name="email", type='text', placeholder='Email',  autofocus='')
-          input.form-control(name="password", type='password', placeholder='Password',  autofocus='')
-          input.form-control(name="password_confirmation", type='password', placeholder='Confirmation', autofocus='')
-
-          select(name="airline").form-control
-            option Delta
-            option AA
-          //- input.form-control(type='email', placeholder='Work email', required='', autofocus='')
-
-        // TODO: remove these brs
-        br
-        input.form-control(type='text', placeholder='Employee number')
-        br
-        button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign up
+	.container
+		form.ro-form-signin(action="/signup", method="post")
+		
+			.ro-input-group
+				input.form-control(name="name", type='text',  placeholder='Name', autofocus='')
+				input.form-control(name="email", type='text', placeholder='Email',  autofocus='')
+	
+			//- .ro-input-group
+				input.form-control(name="password", type='password', placeholder='Password',  autofocus='')
+				input.form-control(name="password_confirmation", type='password', placeholder='Confirmation', autofocus='')
+			
+			
+			input.form-control(type='text', placeholder='Employee number')
+			br
+			select(name="airline").form-control
+				option Delta
+				option AA
+		
+			br
+			button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign up
+			p.text-center.ro-form-help Already a member? 
+				a Login here.    
