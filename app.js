@@ -257,7 +257,7 @@ app.get('/', function(req, res) {
         user: req.user,
         flash: req.flash()
     })
-})
+});
 
 app.get('/signup', function (req, res) {
     res.render('signup', {
@@ -265,7 +265,6 @@ app.get('/signup', function (req, res) {
         flash: req.flash()
     });
 });
-
 
 app.post('/signup.:ext?', function (req, res) {
 
