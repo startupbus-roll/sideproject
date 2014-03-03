@@ -35,13 +35,13 @@ block header
 
 block flash
   - if (typeof flash !== 'undefined')
-      #flash-messages.container.flash-container
+      #flash-messages.container.ro-flash-container
           if flash.success
-            #flash.success.bg-.alert.alert-danger #{flash.success[0]}
+            #flash.alert.alert-success #{flash.success[0]}
           if flash.info
-            #flash.info.alert.alert-danger #{flash.info[0]}
+            #flash.alert.alert-info #{flash.info[0]}
           if flash.error
-            #flash.error.alert.alert-danger #{flash.error[0]}
+            #flash.alert.alert-danger #{flash.error[0]}
 
 block content
   h2 Content
