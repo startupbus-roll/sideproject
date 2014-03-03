@@ -8,14 +8,12 @@ block header
       p.lead Please sign in.
 
 
-
-
 block content
 
     #{JSON.stringify(flash)}
 
     .container.text-center
-      form.form-signin
+      form.form-signin(action="/employee/login", method="POST")
         input.form-control(type='text', placeholder='Email address')
         input.form-control(type='password', placeholder='Password')
         button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in

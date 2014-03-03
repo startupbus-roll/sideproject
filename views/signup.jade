@@ -11,10 +11,12 @@ block content
     .container
       form.form-signin(action="/signup", method="post")
         .input-group
+
           input.form-control(name="name", type='text',  placeholder='Name', required='', autofocus='')
           input.form-control(name="email", type='text', placeholder='Email', required='', autofocus='')
           input.form-control(name="password", type='password', placeholder='Password', required='', autofocus='')
           input.form-control(name="password_confirmation", type='password', placeholder='Confirmation', required='', autofocus='')
+
           select(name="airline")
             option Delta
             option AA
