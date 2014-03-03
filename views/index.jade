@@ -1,6 +1,17 @@
 extends layout
 
 block content
+
+	.container
+		img.logo(src='assets/images/logo.png', alt='Roll Logo')
+		p.lead Are you a...
+		button.btn.btn-lg.btn-primary.btn-block(type='submit') Employee
+		br
+		button.btn.btn-lg.btn-primary.btn-block(type='submit') Buddy
+
+
+
+block content
 	#hero
 		h1 Sideproject helps you be awesome.
 		button Start a Project
