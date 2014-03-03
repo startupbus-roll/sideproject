@@ -7646,22 +7646,21 @@ body {
 .ro-input-group {
   margin: 10px 0;
 }
-/* line 56, ../sass/lib/_app.scss */
-.ro-input-group input:first-child {
+/* line 58, ../sass/lib/_app.scss */
+.ro-input-group input[type="text"]:first-child, .ro-input-group input[type="email"]:first-child, .ro-input-group input[type="password"]:first-child {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* line 61, ../sass/lib/_app.scss */
-.ro-input-group input:last-child {
+/* line 64, ../sass/lib/_app.scss */
+.ro-input-group input[type="text"]:last-child, .ro-input-group input[type="email"]:last-child, .ro-input-group input[type="password"]:last-child {
   margin-top: -1px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-/* line 69, ../sass/lib/_app.scss */
+/* line 74, ../sass/lib/_app.scss */
 .form-control {
-  padding: 20px 16px;
   font-size: 16px;
 }
 
