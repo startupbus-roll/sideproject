@@ -14,13 +14,6 @@ function verify_employee (employee, callback) {
         verification.reason = 'Please specify an airline.';
     else if (!employee.email)
         verification.reason = 'Please provide an email address';
-    else if (
-        !_.str.endsWith(employee.email, '@delta.com') &&
-        !_.str.endsWith(employee.email, '@aa.com')    &&
-        !_.str.contains(employee.email, '+delta@')    &&
-        !_.str.contains(employee.email, '+aa@'))         {
-        verification.reason = 'You need an airline email address.';
-    }
     else if (!employee.password)
         verification.reason = 'Please specify a password.';
     else if (employee.password != employee.password_confirmation)

@@ -12,10 +12,10 @@ block content
       form.form-signin(action="/signup", method="post")
         .input-group
 
-          input.form-control(name="name", type='text',  placeholder='Name', required='', autofocus='')
-          input.form-control(name="email", type='text', placeholder='Email', required='', autofocus='')
-          input.form-control(name="password", type='password', placeholder='Password', required='', autofocus='')
-          input.form-control(name="password_confirmation", type='password', placeholder='Confirmation', required='', autofocus='')
+          input.form-control(name="name", type='text',  placeholder='Name', autofocus='')
+          input.form-control(name="email", type='text', placeholder='Email',  autofocus='')
+          input.form-control(name="password", type='password', placeholder='Password',  autofocus='')
+          input.form-control(name="password_confirmation", type='password', placeholder='Confirmation', autofocus='')
 
           select(name="airline").form-control
             option Delta
@@ -24,6 +24,6 @@ block content
 
         // TODO: remove these brs
         br
-        input.form-control(type='text', placeholder='Employee number', required='')
+        input.form-control(type='text', placeholder='Employee number')
         br
         button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign up
