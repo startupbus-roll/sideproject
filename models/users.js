@@ -8,6 +8,7 @@ users.findById = function (id, callback) {
 
 users.create = function (user, callback) {
     _.defaults(user, {
+        
         fullName: null,
         shortBio: null,
         fullBio: null,

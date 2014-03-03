@@ -16,7 +16,12 @@ process.on('uncaughtException', function (err) {
 var debug = require('debug')('app')
 var express = require('express')
 var flash = require('connect-flash')
+
 var stylus = require('stylus')
+var sass = require('node-sass');
+// var bootstrap_sass = require('bootstrap-sass');
+
+
 var bootstrap = require('bootstrap-stylus')
 var config = require('./config')
 var auth = require('./lib/auth')
@@ -42,6 +47,7 @@ app.configure(function(){
     app.use(auth.passport.session())
     app.use(flash())
     app.use(app.router);
+
     app.use('/public/css', stylus.middleware({
         src: __dirname + '/public/css',
         compile: function (str, path) {
@@ -49,7 +55,18 @@ app.configure(function(){
                   .set('filename', path)
                   .use(bootstrap())
         }
-    }))
+    }));
+
+    app.use('/assets/stylesheets', sass.middleware({
+        src:  __dirname + '/assets/sass',
+        debug: true,
+        compile: function (str, path) {
+            return sass(str)
+                .set('filename', path)
+                .use(bootstrap_sass());
+        }
+    }));
+
     app.use('/public', express.static(__dirname + '/public'));
 })
 
@@ -85,8 +102,20 @@ app.on('book request', function () {
 
 });
 
-app.on('employee signup', function () {
+app.on('employee signup', function (employee) {
 
+    var payload = {
+        from: 'noreply@rollout.com',
+        to: 'seye.ojumu@gmail.com',
+        subject: 'Hello',
+        text: 'Please confirm your email address'
+    };
+
+    require('./lib/mail').send(payload, function (err) {
+        if (err)
+            return debug('err:' + err);
+        debug('sent!');
+    });
 });
 
 app.on('buddy signup', function () {
@@ -134,29 +163,35 @@ app.get('/employee', function (req, res) {
 //-----------------------------------------------------------------------------
 
 app.post('/sponsorships', function (req, res) {
-    var sponsor = req.body.sponsor, sponsored = req.body.sponsored;
-    if (sponsored && typeof sponsored == 'string')
-        sponsored = [sponsored];
-    if (!sponsored.length) 
-        return res.send('nothing to do');
+    var sponsor = req.body.sponsor, name = req.body.name, email = req.body.email, priority = 0;
 
-    async.each(
-        sponsored, 
-        function (member, callback) {
-            models.sponsorships.create({sponsor: sponsor, sponsored: member}, function (err) {
-                if (!err) { 
-                    console.log('sponsor', sponsor, 'member', member);
-                    app.emit('sponsorship created', sponsor, member);
-                }
+    async.parallel([
+        function (callback) {
+            models.members.create({name: name, email: email, priority: 0}, function (err, member) {
+                console.log('created:member', member);
                 callback(err);
             });
         },
+        function (callback) {
+            models.sponsorships.create({sponsor: sponsor, sponsored: email}, function (err) {
+                console.log('created:sponsor', sponsor, 'member', email);
+                callback(err);
+            });
+        }],
         function (err) {
             if (err)
-                res.send(''+err);
+                res.send(400, 'err:'+err);
             else
                 res.send('created sponsorship');
         });
+
+        // },
+        // function (err) {
+        //     if (err)
+        //         res.send(''+err);
+        //     else
+        //         res.send('created sponsorship');
+        // });
 
 });
 
@@ -227,73 +262,109 @@ app.get('/signup', function (req, res) {
     res.render('signup', {
         user: req.user,
         flash: req.flash()
-    })
-})
+    });
+});
 
-app.post('/signup', function (req, res) {
-    var email = req.body.email
-    var password = req.body.password
+app.post('/signup.:ext?', function (req, res) {
 
-    var error = false
+    try { 
+        console.log('ext:' + req.params.ext);
+    }
+    catch (err) {
+        res.send(''+err);
+    }
+
+    function success (user) {
+        app.emit('employee signup', user);
+        req.flash('success', "Thanks for signing up! We're sending you an email.");
+        res.redirect('/signup');
+    }
+
+    function failure (err) {
+        req.flash('error', err.message);
+        res.redirect('/signup');
+    }
+
+    models.employees.create(req.body, function (err, created) {
+        if (err)
+            failure(err);
+        else
+            success(created);
+    });
+
+    // var error = false
     
-    if (!req.body.email) {
-        req.flash('error', 'Email address is required.')
-        error = true
-    }
-    if (!req.body.password) {
-        req.flash('error', 'Password is required.')
-        error = true
-    }
+    // if (!req.body.email) {
+    //     req.flash('error', 'Email address is required.')
+    //     error = true
+    // }
+    // if (!req.body.password) {
+    //     req.flash('error', 'Password is required.')
+    //     error = true
+    // }
 
-    if (error) {
-        res.redirect('/signup')
-        return
-    }
+    // if (error) {
+    //     res.redirect('/signup')
+    //     return
+    // }
 
-    var loginUser = function (err, user) {
-        if (err) {
-            if (err.code == 11000) 
-                req.flash('error', 'A user with that email already exists.')
-            else 
-                req.flash('error', 'Something went wrong. Please try again later.')
-            res.redirect('/signup')
-            return
-        }
+    // var loginUser = function (err, user) {
+    //     if (err) {
+    //         if (err.code == 11000) 
+    //             req.flash('error', 'A user with that email already exists.')
+    //         else 
+    //             req.flash('error', 'Something went wrong. Please try again later.')
+    //         res.redirect('/signup')
+    //         return
+    //     }
 
-        debug('Account created. Login... ', user)
-        req.login(user, redirectUser)
-    }
+    //     debug('Account created. Login... ', user)
+    //     req.login(user, redirectUser)
+    // }
 
-    var redirectUser = function (err) {
-        if (err) {
-            debug('Login failed!')
-            req.flash('error', 'Account created. Please login.')
-            res.redirect('/login')
-            return
-        }
-        debug('Welcome!')
-        req.flash('success', 'Welcome to Sideproject!')
-        res.redirect('/')
-    }
+    // var redirectUser = function (err) {
+    //     if (err) {
+    //         debug('Login failed!')
+    //         req.flash('error', 'Account created. Please login.')
+    //         res.redirect('/login')
+    //         return
+    //     }
+    //     debug('Welcome!')
+    //     req.flash('success', 'Welcome to Sideproject!')
+    //     res.redirect('/')
+    // }
 
-    users.create({
-        email: email,
-        password: password
-    }, loginUser)
+    // users.create({
+    //     email: email,
+    //     password: password
+    // }, loginUser)
 })
 
-app.get('/login', function (req, res) {
-    res.render('login', {
+// 
+
+app.get('/employee/login', function (req, res) {
+    res.render('employee_login', {
         user: req.user,
         flash: req.flash()
-    })
-})
+    });
+});
 
-app.post('/login', auth.authenticate({ successFlash: 'Login successful!' }), function (req, res) {
+app.get('/buddy/login', function (req, res) {
+    res.render('buddy_login', {
+        user: req.user,
+        flash: req.flash('')
+    });
+});
+
+app.post('/employee/login', auth.authenticate({failureRedirect: '/employee/login', successFlash: 'Login successful!'}), function (req, res) {
     res.redirect('/')
-})
+});
 
-app.get('/logout', function(req, res){
+app.post('/buddy/login', auth.authenticate({successFlash: 'Login successful!'}), function (req, res) {
+    res.redirect('/')
+});
+
+app.get('/logout', function (req, res){
   req.logout();
   res.redirect('/');
 });

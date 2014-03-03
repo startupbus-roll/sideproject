@@ -3,6 +3,8 @@ var sponsorships = DB.collection('sponsorships')
 var debug = require('debug')('sponsorships')
 var _ = require('underscore');
 
+sponsorships.ensureIndex({sponsor: 1, sponsored: 1}, {unique: true}, function (err) { });
+
 function verify_sponsorship (sponsorship, callback) {
     var verification = {};
     if (!sponsorship.sponsor)

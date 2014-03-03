@@ -4,6 +4,8 @@ var debug = require('debug')('employees')
 var _        = require('underscore');
     _.str    = require('underscore.string');
 
+employees.ensureIndex({email: 1}, {unique: true, dropDups: true}, function () { });
+
 function verify_employee (employee, callback) {
     var verification = {};
     if (!employee.name)
@@ -12,10 +14,17 @@ function verify_employee (employee, callback) {
         verification.reason = 'Please specify an airline.';
     else if (!employee.email)
         verification.reason = 'Please provide an email address';
-    else if (!_.str.endsWith(employee.email, '@delta.com') &&
-        !_.str.endsWith(employee.email, '@aa.com'))      {
+    else if (
+        !_.str.endsWith(employee.email, '@delta.com') &&
+        !_.str.endsWith(employee.email, '@aa.com')    &&
+        !_.str.contains(employee.email, '+delta@')    &&
+        !_.str.contains(employee.email, '+aa@'))         {
         verification.reason = 'You need an airline email address.';
     }
+    else if (!employee.password)
+        verification.reason = 'Please specify a password.';
+    else if (employee.password != employee.password_confirmation)
+        verification.reason = "Your passwords don't match.";
 
     if (verification.reason)
         verification.invalid = true;
@@ -48,6 +57,12 @@ employees.create = function (employee, callback) {
         if (verification.invalid)
             return callback(new Error(verification.reason));
         employees.insert(employee, {safe: true}, function (err, employee) {
+            if (err)
+                console.log(err.message, err.stack);
+            if (err && err.code == 11000)
+                err = new Error('That email address has already registered');
+            if (err)
+                return callback(err);
             console.log(employee);
             callback(err, employee[0])
         });
