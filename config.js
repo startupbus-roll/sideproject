@@ -1,5 +1,5 @@
 exports.settings = {
-    db: 'mongodb://localhost/roll',
+    db: process.env.MONGOHQ_URL || 'mongodb://localhost/roll',
     from: 'noreply@rollout.com',
     emails: ['libtuck@gmail.com', 'rachel@gatorsdontbark.com', 'laras126@gmail.com', 'seye.ojumu@gmail.com'],
     email: {
