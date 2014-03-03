@@ -363,8 +363,16 @@ app.get('/buddy/login', function (req, res) {
     });
 });
 
-app.post('/employee/login', auth.authenticate_employee('local', {failureRedirect: '/employee/login', successFlash: 'Login successful!', failureFlash: "who are you?"}), function (req, res) {
-    res.redirect('/')
+app.get('/success', function (req, res) {
+
+    res.send('SUCCESS');
+
+});
+
+app.post('/employee/login',
+  auth.authenticate_employee('local', {sucessRedirect: '/success',  failureRedirect: '/employee/login', successFlash: 'Login successful!', failureFlash: "who are you?"}), 
+  function (req, res) {
+    res.redirect('/success');
 });
 
 app.post('/buddy/login', auth.authenticate({successFlash: 'Login successful!'}), function (req, res) {
