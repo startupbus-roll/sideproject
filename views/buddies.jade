@@ -1,8 +1,11 @@
 extends layout
 
 block content
+  include nav
 
   .container
+    
+    h2 Your Buddies
     p.lead Using 4/7 buddy passes
     ul.list-group
       li.list-group-item.list-group-item-info
@@ -20,7 +23,7 @@ block content
       li.list-group-item.list-group-item-warning.disabled
         | James Schenck
         small
-          em pending
+          em &nbsp; pending
         small.pull-right
           em family
       li.list-group-item + Buddy

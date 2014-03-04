@@ -5,7 +5,8 @@
 // Iconography
 // -------------------------
 
-// $icon-font-path:          "../../fonts/" !default;
+$fa-font-path:        "../fonts/font-awesome-4.0.3/fonts";
+
 
 
 // Colors
@@ -28,9 +29,13 @@ $alert-info-bg: 		lighten($ro-lblue, 15%);
 
 $link-color:            $brand-primary;
 
+// $body-bg: 				$ro-lblue;
+// $container-bg: 			$ro-white;
+
 $btn-default-bg: 		$ro-teal;
 $btn-primary: 			$ro-dteal;
 $btn-warning: 			$brand-warning;
+
 
 
 
@@ -38,3 +43,6 @@ $btn-warning: 			$brand-warning;
 // -------------------------
 
 $alert-padding:               10px;
+
+
+
