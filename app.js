@@ -114,7 +114,7 @@ app.on('employee signup', function (employee) {
         '',
         'Welcome to Roll.',
         '',
-        'Your password is: This is a bad password.', 
+        'Your password is: ' + employee.password, 
         ''].join('\n')
     };
 

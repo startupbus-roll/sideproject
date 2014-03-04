@@ -44,8 +44,8 @@ employees.create = function (employee, callback) {
 
     console.log(typeof employee, employee);
 
-    var password = password_generator.password();
-    console.log(password);
+    // var password = password_generator.password();
+    // console.log(password);
 
     employee = _.defaults(employee, {
         fullName: null,
@@ -64,15 +64,24 @@ employees.create = function (employee, callback) {
         console.log('verified');
         if (verification.invalid)
             return callback(new Error(verification.reason));
-        employees.insert(employee, {safe: true}, function (err, employee) {
-            if (err)
-                console.log(err.message, err.stack);
-            if (err && err.code == 11000)
-                err = new Error('That email address has already registered');
+        generate_password(function (err, password_info) {
             if (err)
                 return callback(err);
-            console.log(employee);
-            callback(err, employee[0])
+
+            employee.password = password_info.hash;
+            employees.insert(employee, {safe: true}, function (err, employee) {
+                if (err)
+                    console.log(err.message, err.stack);
+                if (err && err.code == 11000)
+                    err = new Error('That email address has already registered');
+                if (err)
+                    return callback(err);
+                console.log(employee);
+                employee = employee[0];
+                employee.password = password_info.pw;
+                callback(err, employee);
+            });
+
         });
     });
 
