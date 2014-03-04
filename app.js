@@ -243,7 +243,7 @@ app.get('/flights/:from-:to/:date', function (req, res) {
 });
 
 app.get('/employee/dashboard', function (req, res) {
-    res.render('dashboard', {
+    res.render('employee_dashboard', {
 
     });
 });
@@ -414,10 +414,16 @@ app.post('/employee/login', function (req, res) {
         if (err)
             res.send('err:'+err);
         else
-            res.send('OK:' + employee.name);
+            res.redirect('/employee/dashboard')
 
     });
 
+});
+
+app.get('/buddies', function (req, res) {
+    res.render('buddies', {
+
+    });
 });
 
 app.post('/buddy/login', auth.authenticate({successFlash: 'Login successful!'}), function (req, res) {
