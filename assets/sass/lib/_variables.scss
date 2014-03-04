@@ -2,12 +2,10 @@
 // Container sizes
 // --------------------------------------------------
 
-// Iconography
+// Typography
 // -------------------------
 
-$fa-font-path:        "../fonts/font-awesome-4.0.3/fonts";
-
-
+$fa-font-path:        	"../fonts/font-awesome-4.0.3/fonts";
 
 // Colors
 // -------------------------
@@ -20,10 +18,14 @@ $ro-dteal: 				#0b4e5a;
 
 $brand-primary:         $ro-teal;
 
-$brand-success:         #5cb85c;
-$brand-warning:         #fdb813;
+$brand-success:         #40ad74;
+$brand-warning:         #ad4040;
 $brand-danger:          #d9534f;
 $brand-info:            $ro-lblue;
+
+$state-success-bg: 		lighten($brand-success, 40%);
+
+$state-danger-bg: 		lighten($brand-danger, 38%);
 
 $alert-info-bg: 		lighten($ro-lblue, 15%);
 
@@ -36,7 +38,7 @@ $btn-default-bg: 		$ro-teal;
 $btn-primary: 			$ro-dteal;
 $btn-warning: 			$brand-warning;
 
-$list-group-border:           $ro-white;
+$list-group-border:     $ro-white;
 
 
 

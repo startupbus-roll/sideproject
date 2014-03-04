@@ -5,11 +5,19 @@ block content
   
   .container.ro-with-nav
 
-    
     h3.text-center AUS → NYC, Mar 3
+    
     // TODO: remove brs, style it
     hr
-    .alert.alert-success.text-center.clearfix
+
+    // If overbooked
+    if trip.overbooked
+      .text-danger.text-center
+        i.fa.fa-warning.text-danger&nbsp;&nbsp; 
+        | Overbooked
+      br
+
+    .alert.alert-danger.text-center.clearfix
       .col-xs-4
         | 5
         br
@@ -22,8 +30,7 @@ block content
         small 6:00am
         br
         small 100 seats
-        br
-
+    
     .well.well-sm.lead
       i.fa.fa-plane&nbsp;&nbsp; 
       | Flight 232
