@@ -1,0 +1,94 @@
+Everything that is left
+--
+
+- what everyone uses (mvp)
+
+- what we might have for demo purposes
+  - fake booking
+    - track the status of a person + the route
+    - ask people to use one of 6 routes on a handful of days
+
+1. employee signup
+   a. fill in their stuff
+      i. field verification
+     ii. airline domain verification
+    iii. two airlines
+   b. get an email with a password & a link.
+      i. the email is plain looking
+
+employe login flow
+--
+2. employee login
+   a. can go to sign up
+   b. email address + password
+      i. checks bad username
+     ii. checks bad password
+         a. does not give good feedback about bad password
+
+   - missing
+     - forgot password flow
+
+3. employee dashboard
+   - search for flights
+   - manage buddies
+   - list flights
+
+booking flow 
+--
+4. search page
+   . ref: hipmunk
+   . needs calendar
+   . autocomplete for airports
+   . should show hard-coded airline
+   . needs a button
+
+5. search results page
+   . ref: freeballin'
+   . design
+   . examine flight details
+
+
+6. flight details
+   . book the flight
+   . see specific informations
+
+invite buddies flow
+--
+5. manage buddies page
+   . show your buddies
+   . shows the status of the buddy 
+     - active
+     - pending (they haven't logged in)
+     . has a flight request
+       - lists that need to be approved
+       - lists that have been approved
+       - reject lists request
+   . allow you add buddies
+   . remove buddies
+
+6. add buddy page
+   . email
+   + sends email to buddy with password / friend or family
+
+- buddy receives email
+7. buddy login page
+   . after login -> buddy dashboard
+
+8. buddy dashboard
+   . search flights
+   . see your listed
+
+9. search flights
+--
+  + search flow
+  + when buddy books flight,( emails employee ) ; takes them to manage buddies
+
+10. listed flights
+--  
+   . show listed flights 
+     - shows status of flight request
+   . remove your self from listed flight
+     - search results with buddy list style removal
+   . get current likelihood of catching flight;
+     - figure out what the thresholds for the colors is
+
