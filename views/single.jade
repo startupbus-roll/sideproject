@@ -1,20 +1,15 @@
 extends layout
 
 block content
+  include nav
+  
+  .container.ro-with-nav
 
-  .container
-    .well.well-sm.ro-full-width
-      | AUS → NYC, Mar 3
+    
+    h3.text-center AUS → NYC, Mar 3
     // TODO: remove brs, style it
-    .well.well-sm
-      strong 6:00am
-      br
-      | 2hrs, 32min
-      br
-      | Flight 232
-      br
-      | AUS → NYC
-    .clearfix.alert.alert-success.text-center
+    hr
+    .alert.alert-success.text-center.clearfix
       .col-xs-4
         | 5
         br
@@ -28,4 +23,15 @@ block content
         br
         small 100 seats
         br
+
+    .well.well-sm.lead
+      i.fa.fa-plane&nbsp;&nbsp; 
+      | Flight 232
+      br
+      i.fa.fa-clock-o&nbsp;&nbsp; 
+      | 6:00am
+      br
+      i.fa.fa-map-marker&nbsp;&nbsp;
+      | AUS → NYC
+    
     button.btn.btn-lg.btn-primary.btn-block(type='submit') List Me

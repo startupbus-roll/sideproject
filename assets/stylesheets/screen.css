@@ -9740,12 +9740,6 @@ button.close {
 }
 
 /* line 7, ../sass/lib/_general.scss */
-html, body, .ro-app-wrap {
-  height: 100%;
-  position: relative;
-}
-
-/* line 12, ../sass/lib/_general.scss */
 body {
   background-image: url("../images/bottom-bkgd.png");
   background-attachment: fixed;
@@ -9754,45 +9748,45 @@ body {
   background-size: 100% auto;
 }
 @media (min-width: 768px) {
-  /* line 12, ../sass/lib/_general.scss */
+  /* line 7, ../sass/lib/_general.scss */
   body {
     background-image: url("../images/bottom-bkgd@2x.png") !important;
   }
 }
 
-/* line 26, ../sass/lib/_general.scss */
+/* line 21, ../sass/lib/_general.scss */
 img {
   max-width: 100%;
 }
 
-/* line 30, ../sass/lib/_general.scss */
+/* line 25, ../sass/lib/_general.scss */
 hr {
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
-/* line 37, ../sass/lib/_general.scss */
+/* line 32, ../sass/lib/_general.scss */
 .ro-view-title {
   margin-top: 0;
 }
 
-/* line 48, ../sass/lib/_general.scss */
+/* line 43, ../sass/lib/_general.scss */
 .ro-with-nav {
   padding-top: 50px;
 }
 
-/* line 54, ../sass/lib/_general.scss */
+/* line 49, ../sass/lib/_general.scss */
 .ro-app-wrap, .container {
   margin: 0 auto;
   max-width: 480px;
 }
 
-/* line 66, ../sass/lib/_general.scss */
+/* line 61, ../sass/lib/_general.scss */
 .ro-full-width, .ro-list .list-group-item:first-child, .ro-list .list-group-item:last-child {
   border-radius: 0;
 }
 
-/* line 73, ../sass/lib/_general.scss */
+/* line 68, ../sass/lib/_general.scss */
 .ro-form-help {
   padding-top: 10px;
   color: #555555;
@@ -9800,7 +9794,7 @@ hr {
   margin-bottom: 0;
 }
 
-/* line 83, ../sass/lib/_general.scss */
+/* line 78, ../sass/lib/_general.scss */
 .ro-push {
   height: 60px;
 }
