@@ -9770,23 +9770,28 @@ hr {
   margin-top: 0;
 }
 
-/* line 43, ../sass/lib/_general.scss */
+/* line 37, ../sass/lib/_general.scss */
+.ro-lead-lg {
+  font-size: 18px;
+}
+
+/* line 47, ../sass/lib/_general.scss */
 .ro-with-nav {
   padding-top: 50px;
 }
 
-/* line 49, ../sass/lib/_general.scss */
+/* line 53, ../sass/lib/_general.scss */
 .ro-app-wrap, .container {
   margin: 0 auto;
   max-width: 480px;
 }
 
-/* line 61, ../sass/lib/_general.scss */
+/* line 65, ../sass/lib/_general.scss */
 .ro-full-width, .ro-list .list-group-item:first-child, .ro-list .list-group-item:last-child {
   border-radius: 0;
 }
 
-/* line 68, ../sass/lib/_general.scss */
+/* line 72, ../sass/lib/_general.scss */
 .ro-form-help {
   padding-top: 10px;
   color: #555555;
@@ -9794,7 +9799,7 @@ hr {
   margin-bottom: 0;
 }
 
-/* line 78, ../sass/lib/_general.scss */
+/* line 82, ../sass/lib/_general.scss */
 .ro-push {
   height: 60px;
 }
