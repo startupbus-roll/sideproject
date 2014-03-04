@@ -3,6 +3,8 @@ var employees = DB.collection('employees')
 var debug = require('debug')('employees')
 var _        = require('underscore');
     _.str    = require('underscore.string');
+var createPassword = require('password-generator');
+var bcrypt = require('bcrypt');
 
 employees.ensureIndex({email: 1}, {unique: true, dropDups: true}, function () { });
 
@@ -24,9 +26,26 @@ employees.findById = function (id, callback) {
     debug('findById:', id)    
 }
 
+function generate_password (callback) {
+
+    var pw = createPassword();
+    bcrypt.genSalt(10, function (err, salt) {
+        if (err)
+            return callback(err);
+        bcrypt.hash(pw, salt, function (err, hash) {
+            if (err)
+                return callback(err);
+            return callback(null, {password: pw, hash: hash});
+        });
+    });
+}
+
 employees.create = function (employee, callback) {
 
     console.log(typeof employee, employee);
+
+    // var password = password_generator.password();
+    // console.log(password);
 
     employee = _.defaults(employee, {
         fullName: null,
@@ -36,7 +55,7 @@ employees.create = function (employee, callback) {
         links: [],
         website: null,
         projects: [], // array of project document _ids
-        airline: null 
+        airline: null,
     });
 
     console.log(typeof employee, employee);
@@ -45,15 +64,25 @@ employees.create = function (employee, callback) {
         console.log('verified');
         if (verification.invalid)
             return callback(new Error(verification.reason));
-        employees.insert(employee, {safe: true}, function (err, employee) {
-            if (err)
-                console.log(err.message, err.stack);
-            if (err && err.code == 11000)
-                err = new Error('That email address has already registered');
+        generate_password(function (err, password_info) {
             if (err)
                 return callback(err);
-            console.log(employee);
-            callback(err, employee[0])
+
+            console.log('password_info:' + JSON.stringify(password_info));
+            employee.password = password_info.hash;
+            employees.insert(employee, {safe: true}, function (err, employee) {
+                if (err)
+                    console.log(err.message, err.stack);
+                if (err && err.code == 11000)
+                    err = new Error('That email address has already registered');
+                if (err)
+                    return callback(err);
+                employee = employee[0];
+                employee.password = password_info.password;
+                console.log(employee);
+                callback(err, employee);
+            });
+
         });
     });
 
