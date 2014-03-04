@@ -223,10 +223,16 @@ app.get('/flights/:from-:to/:date.json', function (req, res) {
     models.trip.fake({source: req.params.from, destination: req.params.to}, function (err, trips) {
         if (err)
             res.send(''+err);
-        else 
+        else
             res.send(trips);
     });
 
+});
+
+app.get('/employee/dashboard', function (req, res) {
+    res.render('dashboard', {
+
+    });
 });
 
 app.get('/search', function (req, res) {
@@ -235,7 +241,7 @@ app.get('/search', function (req, res) {
     res.render('search', {
 
     });
-    
+
     // // from
     // // to
     // // yyyy-mm-dd
@@ -389,10 +395,16 @@ app.get('/success', function (req, res) {
 
 });
 
-app.post('/employee/login',
-  auth.authenticate_employee('local', {sucessRedirect: '/success',  failureRedirect: '/employee/login', successFlash: 'Login successful!', failureFlash: "who are you?"}), 
-  function (req, res) {
-    res.redirect('/success');
+app.post('/employee/login', function (req, res) {
+    console.log(req.body);
+    auth.employee({email: req.body.e, password: req.body.p}, function (err, employee) {
+        if (err)
+            res.send('err:'+err);
+        else
+            res.send('OK:' + employee.name);
+
+    });
+
 });
 
 app.post('/buddy/login', auth.authenticate({successFlash: 'Login successful!'}), function (req, res) {
