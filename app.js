@@ -229,6 +229,19 @@ app.get('/flights/:from-:to/:date.json', function (req, res) {
 
 });
 
+
+app.get('/flights/:from-:to/:date', function (req, res) {
+
+
+    models.trip.fake({source: req.params.from, destination: req.params.to}, function (err, trips) {
+
+        res.render('flights', {
+            trips: trips
+        });
+    });
+
+});
+
 app.get('/employee/dashboard', function (req, res) {
     res.render('dashboard', {
 
