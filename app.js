@@ -254,25 +254,30 @@ app.get('/flight/:id', function (req, res) {
 
 app.post('/listings', function (req, res) {
 
+    models.listing.create({}, function (err) {
+        res.redirect('/listings');
+    });
+
 });
 
 app.get('/listings', function (req, res) {
 
-});
-
-// create a listing
-app.post('/flight/:id/list', function (req, res) {
-
-    console.log(req.body);
-    res.redirect('/blahblahblah');
-
-});
-
-// the listed flights page
-app.get('/blahblahblah', function (req, res) {
     res.render('listed', {
 
     });
+
+});
+
+// // create a listing
+// app.post('/flight/:id/list', function (req, res) {
+
+//     console.log(req.body);
+//     res.redirect('/blahblahblah');
+
+// });
+
+// the listed flights page
+app.get('/blahblahblah', function (req, res) {
 });
 
 app.get('/employee/dashboard', function (req, res) {
@@ -351,9 +356,11 @@ app.post('/signup.:ext?', function (req, res) {
     }
 
     function success (user) {
+
         app.emit('employee signup', user);
         req.flash('success', "Thanks for signing up! We're sending you an email.");
-        res.redirect('/signup');
+        res.redirect('/employee/dashboard');
+        
     }
 
     function failure (err) {
@@ -435,7 +442,7 @@ app.post('/employee/login', function (req, res) {
         }
         else {
             req.session.current_id = employee.id;
-            res.redirect('/employee/dashboard')
+            res.redirect('/employee/dashboard');
         }
 
     });

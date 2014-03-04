@@ -1,11 +1,16 @@
 1. click the list me button
 
    -> submit & redirect
+      -> create listings
    - change the text of the button
    - flash a little something
 
 0. current user
 1. redirect to home page
+
+sign out
+
+
 
 Everything that is left
 --
