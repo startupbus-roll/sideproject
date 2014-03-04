@@ -38,8 +38,8 @@ body {
 
 // Login and sign up
 
-.ro-flash-container {
-	margin: 0;
+#flash {
+	margin: 0 auto 10px;
 }
 
 .ro-form-signin {
@@ -72,7 +72,6 @@ body {
 }
 
 .form-control {
-	// padding: 20px 16px;
 	font-size: 16px;
 }
 

@@ -5,17 +5,23 @@ block header
     .container
         img.logo(src='/assets/images/logo.png', alt='Roll Logo')
         br
-        .well.well-sm
-            p.lead Hey, Employee!
-            p Sign up to search flights and add friends and family to your buddies list. Already a member? 
-                a Login here.
-
+        
+        hr
+        
+        .alert
+            p.lead Hey employee!
+            p Sign in to manage your buddies and search flights.
+            p.lead Not a member yet? 
+            aSign up here.
+        hr
+        
 
 block content
 
     .container
         
         #{JSON.stringify(flash)}
+
         form.form-signin(action="/employee/login", method="POST")
 
             .ro-input-group
