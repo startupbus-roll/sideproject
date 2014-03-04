@@ -11,6 +11,7 @@
 // // };
 
 var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var uuid = require('uuid').v4;
 
 function random_code () {
 	var code = '';
@@ -21,6 +22,14 @@ function random_code () {
 
 function random_int (max) { 
 	return Math.floor(Math.random() * max);
+}
+
+function random_list (max) {
+	var t = random_int(max);
+	var p = [];
+	for (var i = 0; i < t; i++)
+		p.push(null);
+	return p;
 }
 
 exports.fake = function (options, callback) {
@@ -34,7 +43,7 @@ exports.fake = function (options, callback) {
 				destination: random_code()
 			});
 		}
-		trips.push({segments: segments});
+		trips.push({id: uuid(), available: random_int(15), listed: random_list(10), capacity: random_int(100)+60, segments: segments});
 	}
 	console.log(JSON.stringify(trips));
 	return callback(null, trips);

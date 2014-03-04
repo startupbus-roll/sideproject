@@ -9765,33 +9765,44 @@ img {
   max-width: 100%;
 }
 
-/* line 33, ../sass/lib/_general.scss */
+/* line 30, ../sass/lib/_general.scss */
+hr {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+/* line 37, ../sass/lib/_general.scss */
 .ro-view-title {
   margin-top: 0;
 }
 
-/* line 44, ../sass/lib/_general.scss */
+/* line 48, ../sass/lib/_general.scss */
 .ro-with-nav {
   padding-top: 50px;
 }
 
-/* line 50, ../sass/lib/_general.scss */
+/* line 54, ../sass/lib/_general.scss */
 .ro-app-wrap, .container {
   margin: 0 auto;
   max-width: 480px;
 }
 
-/* line 62, ../sass/lib/_general.scss */
+/* line 66, ../sass/lib/_general.scss */
 .ro-full-width, .ro-list .list-group-item:first-child, .ro-list .list-group-item:last-child {
   border-radius: 0;
 }
 
-/* line 69, ../sass/lib/_general.scss */
+/* line 73, ../sass/lib/_general.scss */
 .ro-form-help {
   padding-top: 10px;
   color: #555555;
   font-size: 12px;
   margin-bottom: 0;
+}
+
+/* line 83, ../sass/lib/_general.scss */
+.ro-push {
+  height: 60px;
 }
 
 /* line 5, ../sass/lib/_app.scss */
@@ -9805,7 +9816,7 @@ img {
 .ro-icon-lg {
   vertical-align: middle;
   line-height: 2;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 200;
   margin-left: 10px;
   margin-right: 10px;
@@ -9833,12 +9844,17 @@ img {
   margin-top: 32px;
 }
 
-/* line 71, ../sass/lib/_app.scss */
+/* line 65, ../sass/lib/_app.scss */
+.ro-dash-btn {
+  margin-bottom: 10px;
+}
+
+/* line 72, ../sass/lib/_app.scss */
 #flash {
   margin: 0 auto 10px;
 }
 
-/* line 75, ../sass/lib/_app.scss */
+/* line 76, ../sass/lib/_app.scss */
 .ro-form-signin {
   position: relative;
   font-size: 16px;
@@ -9848,38 +9864,38 @@ img {
   box-sizing: border-box;
 }
 
-/* line 84, ../sass/lib/_app.scss */
+/* line 85, ../sass/lib/_app.scss */
 .ro-input-group {
   margin: 10px 0;
 }
-/* line 88, ../sass/lib/_app.scss */
+/* line 89, ../sass/lib/_app.scss */
 .ro-input-group input[type="text"]:first-child, .ro-input-group input[type="email"]:first-child, .ro-input-group input[type="password"]:first-child {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* line 94, ../sass/lib/_app.scss */
+/* line 95, ../sass/lib/_app.scss */
 .ro-input-group input[type="text"]:last-child, .ro-input-group input[type="email"]:last-child, .ro-input-group input[type="password"]:last-child {
   margin-top: -1px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-/* line 104, ../sass/lib/_app.scss */
+/* line 105, ../sass/lib/_app.scss */
 .form-control {
   font-size: 16px;
 }
 
-/* line 113, ../sass/lib/_app.scss */
+/* line 114, ../sass/lib/_app.scss */
 .ro-calendar {
   height: 200px;
 }
 
-/* line 122, ../sass/lib/_app.scss */
+/* line 123, ../sass/lib/_app.scss */
 .ro-list {
   padding-top: 30px;
 }
-/* line 124, ../sass/lib/_app.scss */
+/* line 125, ../sass/lib/_app.scss */
 .ro-list .list-group-item {
   border-width: 3px;
   border-color: #fff;

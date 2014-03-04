@@ -244,6 +244,21 @@ app.get('/flights/:from-:to/:date', function (req, res) {
 
 });
 
+app.get('/flight/:id', function (req, res) {
+
+    res.render('single', {
+
+    });
+
+});
+
+// the listed flights page
+app.get('/blahblahblah', function (req, res) {
+    res.render('listed', {
+
+    });
+});
+
 app.get('/employee/dashboard', function (req, res) {
     res.render('employee_dashboard', {
 

@@ -27,6 +27,10 @@ img {
 	max-width: 100%;
 }
 
+hr {
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
 
 // Typography
 
@@ -75,3 +79,7 @@ img {
 
 
 // Utility
+
+.ro-push {
+	height: 60px;
+}

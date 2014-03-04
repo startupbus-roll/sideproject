@@ -1,3 +1,7 @@
+1. click the list me button
+   - change the text of the button
+   - flash a little something
+
 Everything that is left
 --
 

@@ -3,16 +3,12 @@ extends layout
 block content
     .container
         img.logo(src='../assets/images/logo.png', alt='Roll Logo')
-        br
-        .well.well-sm
-            p.lead Hey, Buddy!
-            p Sign in using your email and the secure password you received via email.
-            p Don't have a login? An airline employee can give you access.
-        
+        hr
+        p.lead Hey, Buddy!
+        p Sign in using your email and the secure password you received via email.
+        p Don't have a login? An airline employee can give you access.
+        hr
         form.ro-form-signin
-            
-            .alert.alert-danger
-                small Oops, incorrect login.
             
             .ro-input-group
                 input.form-control(type='text', placeholder='Email address')
