@@ -3,6 +3,8 @@ var employees = DB.collection('employees')
 var debug = require('debug')('employees')
 var _        = require('underscore');
     _.str    = require('underscore.string');
+var password_generator = require('password-generator');
+var bcrypt = require('bcrypt');
 
 employees.ensureIndex({email: 1}, {unique: true, dropDups: true}, function () { });
 
@@ -24,9 +26,26 @@ employees.findById = function (id, callback) {
     debug('findById:', id)    
 }
 
+function generate_password (callback) {
+
+    var pw = password_generator.password();
+    bcrypt.genSalt(function (err, salt) {
+        if (err)
+            return callback(err);
+        bcrypt.hash(pw, function (err, hash) {
+            if (err)
+                return callback(err);
+            return callback(null, {password: pw, hash: hash});
+        });
+    });
+}
+
 employees.create = function (employee, callback) {
 
     console.log(typeof employee, employee);
+
+    var password = password_generator.password();
+    console.log(password);
 
     employee = _.defaults(employee, {
         fullName: null,
@@ -36,7 +55,7 @@ employees.create = function (employee, callback) {
         links: [],
         website: null,
         projects: [], // array of project document _ids
-        airline: null 
+        airline: null,
     });
 
     console.log(typeof employee, employee);

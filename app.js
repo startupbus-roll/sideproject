@@ -107,7 +107,7 @@ app.on('employee signup', function (employee) {
 
     var payload = {
         from: 'noreply@rollout.com',
-        to: 'seye.ojumu@gmail.com',
+        to: employee.email, // 'seye.ojumu@gmail.com',
         subject: 'Hello',
         text: [
         'Hi ' + employee.name + ',',
