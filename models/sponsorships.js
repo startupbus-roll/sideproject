@@ -21,6 +21,15 @@ sponsorships.findById = function (id, callback) {
     debug('findById:', id)    
 };
 
+sponsorships.findBySponsor = function (employee, callback) {
+    sponsorships.find({sponsor: employee.email}).toArray(function (err, sponsorships) {
+        if (err)
+            return callback(err);
+        else
+            return callback(null, sponsorships);
+    });
+};
+
 sponsorships.create = function (sponsorship, callback) {
 
     sponsorship = _.defaults(sponsorship, {

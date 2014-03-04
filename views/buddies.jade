@@ -23,6 +23,8 @@ block content
           em pending
         small.pull-right
           em family
-      li.list-group-item + Buddy
-      li.list-group-item + Buddy
-      li.list-group-item + Buddy
+      - for (var i = 0; i < 3; i++)
+        li.list-group-item 
+          a(href="/buddy") + Buddy
+      //- li.list-group-item + Buddy
+      //- li.list-group-item + Buddy
