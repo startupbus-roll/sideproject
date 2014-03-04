@@ -267,7 +267,7 @@ app.post('/listings', function (req, res) {
 app.get('/listings', function (req, res) {
 
     res.render('listed', {
-
+        listings: [null, null]
     });
 
 });
@@ -463,6 +463,7 @@ app.get('/buddy', function (req, res) {
 app.get('/buddy/dashboard', function (req, res) {
 
     res.render('buddy_dashboard', {
+
         // when you add a buddy -> create a sponsorship
     });
 });

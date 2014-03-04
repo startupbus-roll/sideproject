@@ -2,4 +2,10 @@ extends layout
 
 block content
 
-  .container Hi! Your listed!
+  .container
+
+    ul
+
+    - for listing in listings
+
+        include listing
