@@ -11,6 +11,12 @@ flights.findById = function (id, callback) {
     });
 };
 
+flights.create = function (flight, callback) {
+
+	
+
+};
+
 flights.trip = {
 
 	id: '3c11ebf2-9376-4f7f-9aa0-1b62f0c71ba8',
