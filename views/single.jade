@@ -1,0 +1,31 @@
+extends layout
+
+block content
+
+  .container
+    .well.well-sm.ro-full-width
+      | AUS → NYC, Mar 3
+    // TODO: remove brs, style it
+    .well.well-sm
+      strong 6:00am
+      br
+      | 2hrs, 32min
+      br
+      | Flight 232
+      br
+      | AUS → NYC
+    .clearfix.alert.alert-success.text-center
+      .col-xs-4
+        | 5
+        br
+        small Available
+      .col-xs-4
+        | 6
+        br
+        small Listed
+      .col-xs-4
+        small 6:00am
+        br
+        small 100 seats
+        br
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') List Me
