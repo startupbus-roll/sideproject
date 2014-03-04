@@ -52,14 +52,23 @@
 // --------------------------------------------------
 
 
-
 // Dashboard/home
 
 .ro-dashboard {
+	height: 100%;
+	background-image: url('../images/bottom-bkgd.png');
+	background-attachment: fixed;
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+
 	.logo {
 		max-width: 90%;
 		margin-top: 32px;
 	}
+}
+
+.ro-dashboard {
 }
 
 

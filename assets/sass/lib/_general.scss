@@ -4,9 +4,9 @@
 
 }
 
-body {
-	// background-color: $brand-primary;
-	padding-top: 50px;
+html, body, .ro-app-wrap {
+	height: 100%;
+
 }
 
 img {
@@ -26,13 +26,11 @@ img {
 // Basic container styles
 // --------------------------------------------------
 
-.ro-welcome {
-	background-image: url('../images/bottom-bkgd.png');
-	background-attachment: fixed;
-	background-position: bottom center;
-	background-repeat: no-repeat;
-	background-size: 100% auto;
+
+.ro-with-nav {
+	padding-top: 50px;
 }
+
 
 // TODO: remove container from this
 .ro-app-wrap, .container {
@@ -47,7 +45,6 @@ img {
 .ro-full-width {
 	border-radius: 0;
 }
- 
 
  
 // Forms
