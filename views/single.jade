@@ -10,33 +10,50 @@ block content
     // TODO: remove brs, style it
     hr
 
-    // If overbooked
-    if trip.overbooked
-      .text-danger.text-center
-        i.fa.fa-warning.text-danger&nbsp;&nbsp; 
-        | Overbooked
-      br
-
     .alert.alert-danger.text-center.clearfix
       .col-xs-4
-        | 5
+        span.lead.ro-lead-lg #{trip.available}
         br
         small Available
       .col-xs-4
-        | 6
+        span.lead.ro-lead-lg #{trip.listed.length}
         br
         small Listed
       .col-xs-4
-        small 6:00am
+        span.lead.ro-lead-lg #{trip.capacity}
         br
-        small 100 seats
-    
+        small Capacity
+    hr
+    .clearfix
+      .col-xs-6.text-danger
+        strong 3 
+        | Ahead of you
+      .col-xs-6.text-warning
+        strong 4 
+        | Same priority
+    hr
     .well.well-sm.lead
+      .clearfix.text-center
+        .col-xs-1
+          br
+          i.fa.fa-clock-o&nbsp;&nbsp; 
+        .col-xs-5
+          small Depart
+          br
+          | 6:00am
+          
+        .col-xs-5
+          small Arrive 
+          | 12:00pm
+      br
+
+      .clearfix.text-center
+        .col-xs-1
+      i.fa.fa-stop&nbsp;&nbsp; 
+      | Nonstop
+      br
       i.fa.fa-plane&nbsp;&nbsp; 
       | Flight 232
-      br
-      i.fa.fa-clock-o&nbsp;&nbsp; 
-      | 6:00am
       br
       i.fa.fa-map-marker&nbsp;&nbsp;
       | AUS → NYC
