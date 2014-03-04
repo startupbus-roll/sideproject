@@ -214,7 +214,7 @@ app.get('/foo', function (req, res) {
 // Flights: Search
 //-----------------------------------------------------------------------------
 
-app.get('/flights/:from-:to/:date', function (req, res) {
+app.get('/flights/:from-:to/:date.json', function (req, res) {
 
     // from
     // to
@@ -226,6 +226,26 @@ app.get('/flights/:from-:to/:date', function (req, res) {
         else 
             res.send(trips);
     });
+
+});
+
+app.get('/search', function (req, res) {
+
+
+    res.render('search', {
+
+    });
+    
+    // // from
+    // // to
+    // // yyyy-mm-dd
+
+    // models.trip.fake({source: req.params.from, destination: req.params.to}, function (err, trips) {
+    //     if (err)
+    //         res.send(''+err);
+    //     else 
+    //         res.send(trips);
+    // });
 
 });
 

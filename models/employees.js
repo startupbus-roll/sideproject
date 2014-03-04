@@ -29,10 +29,10 @@ employees.findById = function (id, callback) {
 function generate_password (callback) {
 
     var pw = createPassword();
-    bcrypt.genSalt(function (err, salt) {
+    bcrypt.genSalt(10, function (err, salt) {
         if (err)
             return callback(err);
-        bcrypt.hash(pw, function (err, hash) {
+        bcrypt.hash(pw, salt, function (err, hash) {
             if (err)
                 return callback(err);
             return callback(null, {password: pw, hash: hash});
@@ -68,6 +68,7 @@ employees.create = function (employee, callback) {
             if (err)
                 return callback(err);
 
+            console.log('password_info:' + JSON.stringify(password_info));
             employee.password = password_info.hash;
             employees.insert(employee, {safe: true}, function (err, employee) {
                 if (err)
@@ -76,9 +77,9 @@ employees.create = function (employee, callback) {
                     err = new Error('That email address has already registered');
                 if (err)
                     return callback(err);
-                console.log(employee);
                 employee = employee[0];
-                employee.password = password_info.pw;
+                employee.password = password_info.password;
+                console.log(employee);
                 callback(err, employee);
             });
 
