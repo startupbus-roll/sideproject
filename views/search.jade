@@ -13,22 +13,23 @@ block content
 				//- em Employee
 				em Buddy Pass, Family
 
-			form
+			form(action="/search", method="POST")
 				.input-group
 					span.input-group-addon
 						span.fa.fa-map-marker
-					input.form-control(type='text', placeholder='Leaving from...')
+					input.form-control(type='text', name="from", placeholder='Leaving from...', value="DFW")
 				
 				br
 
 				.input-group
 					span.input-group-addon
 						span.fa.fa-map-marker
-					input.form-control(type='text', placeholder='Traveling to..')
+					input.form-control(type='text', name="to", placeholder='Traveling to..', value="LGA")
 				
 				br
 
 			.ro-calendar.well.well-sm
+				input(type="hidden", name="depart", value="2014-03-04")
 				h1 Calendar here
 				
 			input.btn.btn-primary.btn-lg.btn-block(type='submit', value='Find Flights')
