@@ -247,8 +247,24 @@ app.get('/flights/:from-:to/:date', function (req, res) {
 app.get('/flight/:id', function (req, res) {
 
     res.render('single', {
-
+        trip: models.flights.trip
     });
+
+});
+
+app.post('/listings', function (req, res) {
+
+});
+
+app.get('/listings', function (req, res) {
+
+});
+
+// create a listing
+app.post('/flight/:id/list', function (req, res) {
+
+    console.log(req.body);
+    res.redirect('/blahblahblah');
 
 });
 
@@ -260,6 +276,7 @@ app.get('/blahblahblah', function (req, res) {
 });
 
 app.get('/employee/dashboard', function (req, res) {
+    console.log('current id:' + req.session.id);
     res.render('employee_dashboard', {
 
     });
@@ -415,11 +432,11 @@ app.post('/employee/login', function (req, res) {
         if (err) {
             req.flash('error', err.message);
             res.redirect('/employee/login');
-            // res.send('err:'+err);
         }
-
-        else
+        else {
+            req.session.current_id = employee.id;
             res.redirect('/employee/dashboard')
+        }
 
     });
 

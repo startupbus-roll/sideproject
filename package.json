@@ -23,7 +23,8 @@
     "bootstrap-sass": "~2.3.2",
     "node-sass": "~0.8.1",
     "password-generator": "~0.2.2",
-    "bcrypt": "~0.7.7"
+    "bcrypt": "~0.7.7",
+    "uuid": "~1.4.1"
   },
   "engines": {
     "node": "0.8.x",

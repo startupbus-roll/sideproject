@@ -2,13 +2,13 @@ extends layout
 
 block content
 
-
     .container
       img.logo(src='../assets/images/logo.png', alt='Roll Logo')
       form.form-signin
         h2.form-signin-heading Hey Buddy
-        // TODO: remove brs
-        br
-        button.btn.btn-lg.btn-primary.btn-block(type='submit') Search Flights
-        br
-        button.btn.btn-lg.btn-primary.btn-block(type='submit') See Listed Flights
+        a.btn.btn-lg.btn-primary.btn-block(href="")
+	        i.fa.fa.fa-plane.ro-icon-lg
+	            | &nbsp;Search Flights
+		a.btn.btn-lg.btn-primary.btn-block.ro-dash-btn(href="")
+            i.fa.fa.fa-list.ro-icon-lg
+            	| &nbsp;See Listed Flights

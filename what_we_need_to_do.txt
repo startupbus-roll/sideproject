@@ -1,6 +1,11 @@
 1. click the list me button
+
+   -> submit & redirect
    - change the text of the button
    - flash a little something
+
+0. current user
+1. redirect to home page
 
 Everything that is left
 --
