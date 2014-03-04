@@ -9772,7 +9772,7 @@ button.close {
   margin: 5px auto 0;
 }
 
-/* line 21, ../sass/lib/_app.scss */
+/* line 25, ../sass/lib/_app.scss */
 .ro-back {
   vertical-align: middle;
   line-height: 2;
@@ -9782,18 +9782,18 @@ button.close {
   margin-right: 10px;
 }
 
-/* line 39, ../sass/lib/_app.scss */
+/* line 43, ../sass/lib/_app.scss */
 .ro-dashboard .logo {
   max-width: 90%;
   margin-top: 32px;
 }
 
-/* line 48, ../sass/lib/_app.scss */
+/* line 52, ../sass/lib/_app.scss */
 #flash {
   margin: 0 auto 10px;
 }
 
-/* line 52, ../sass/lib/_app.scss */
+/* line 56, ../sass/lib/_app.scss */
 .ro-form-signin {
   position: relative;
   font-size: 16px;
@@ -9803,24 +9803,24 @@ button.close {
   box-sizing: border-box;
 }
 
-/* line 61, ../sass/lib/_app.scss */
+/* line 65, ../sass/lib/_app.scss */
 .ro-input-group {
   margin: 10px 0;
 }
-/* line 65, ../sass/lib/_app.scss */
+/* line 69, ../sass/lib/_app.scss */
 .ro-input-group input[type="text"]:first-child, .ro-input-group input[type="email"]:first-child, .ro-input-group input[type="password"]:first-child {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* line 71, ../sass/lib/_app.scss */
+/* line 75, ../sass/lib/_app.scss */
 .ro-input-group input[type="text"]:last-child, .ro-input-group input[type="email"]:last-child, .ro-input-group input[type="password"]:last-child {
   margin-top: -1px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-/* line 81, ../sass/lib/_app.scss */
+/* line 85, ../sass/lib/_app.scss */
 .form-control {
   font-size: 16px;
 }
