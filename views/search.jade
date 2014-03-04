@@ -2,10 +2,12 @@ extends layout
 
 block header
 
+	include nav
+
 block content
 
 		.container
-
+			
 			form
 		
 				input.form-control(type='text', placeholder='Airline')
@@ -14,3 +16,9 @@ block content
 				.ro-input-group
 					input.form-control(type='text', placeholder='Leaving from...')
 					input.form-control(type='text', placeholder='Traveling to..')
+				br
+
+			.text-center
+				h1 Calendar here
+				
+			input.btn.btn-primary.btn-lg.btn-block(type='submit', value='Search Flights')
