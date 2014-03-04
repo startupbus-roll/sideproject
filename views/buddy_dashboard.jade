@@ -5,13 +5,18 @@ block content
     .container
       img.logo(src='../assets/images/logo.png', alt='Roll Logo')
       
-      form.form-signin
-        h2.form-signin-heading Hey Buddy
-        
-        a.btn.btn-lg.btn-primary.btn-block(href="/search")
-	        i.fa.fa.fa-plane.ro-icon-lg
-	            | &nbsp;Search Flights
-		    
-        a.btn.btn-lg.btn-primary.btn-block.ro-dash-btn(href="/listings")
+      hr
+      p.lead.text-center Welcome Buddy!
+      //- p Search flights and add friends and family to your buddy list here. 
+      hr
+      // TODO: remove brs
+      a.btn.btn-lg.btn-primary.btn-block.ro-dash-btn(href="/search") 
+            i.fa.fa.fa-plane.ro-icon-lg
+            | &nbsp;Search Flights
+      a.btn.btn-lg.btn-primary.btn-block.ro-dash-btn(href="/listings")
             i.fa.fa.fa-list.ro-icon-lg
-            	| &nbsp;See Listed Flights
+            | &nbsp;See Listed Flights
+      br
+      hr
+      p.text-center 
+            a(href="") Sign out

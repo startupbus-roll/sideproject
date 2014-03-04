@@ -460,6 +460,14 @@ app.get('/buddy', function (req, res) {
     });
 });
 
+app.get('/buddy/dashboard', function (req, res) {
+
+    res.render('buddy_dashboard', {
+        // when you add a buddy -> create a sponsorship
+    });
+});
+
+
 app.get('/buddy/login', function (req, res) {
     res.render('buddy_login', {
         user: req.user,
@@ -494,7 +502,9 @@ app.get('/buddies', function (req, res) {
             if (err)
                 return res.send('err:'+err);
             else
-                return res.send(sponsorships);
+                return res.render('buddies', {
+                    sponsorships: sponsorships
+                });
         });
 
     });
