@@ -28,4 +28,6 @@ block content
         br
         small 100 seats
         br
-    button.btn.btn-lg.btn-primary.btn-block(type='submit') List Me
+
+    form(action="/flight/#{trip.id}/list", method="POST")
+      button.btn.btn-lg.btn-primary.btn-block(type='submit') List Me
