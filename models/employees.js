@@ -3,7 +3,7 @@ var employees = DB.collection('employees')
 var debug = require('debug')('employees')
 var _        = require('underscore');
     _.str    = require('underscore.string');
-var password_generator = require('password-generator');
+var createPassword = require('password-generator');
 var bcrypt = require('bcrypt');
 
 employees.ensureIndex({email: 1}, {unique: true, dropDups: true}, function () { });
@@ -28,7 +28,7 @@ employees.findById = function (id, callback) {
 
 function generate_password (callback) {
 
-    var pw = password_generator.password();
+    var pw = createPassword();
     bcrypt.genSalt(function (err, salt) {
         if (err)
             return callback(err);
