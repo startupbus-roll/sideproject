@@ -26,6 +26,15 @@ employees.findById = function (id, callback) {
     debug('findById:', id)    
 }
 
+employees.findByEmail = function (email, callback) {
+    employees.findOne({email: email}, function (err, employee) {
+        if (err)
+            return callback(err);
+        else
+            return callback(null, employee);
+    });
+};
+
 function generate_password (callback) {
 
     var pw = createPassword();

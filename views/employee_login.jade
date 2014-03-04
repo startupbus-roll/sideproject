@@ -23,8 +23,8 @@ block content
         form.form-signin(action="/employee/login", method="POST")
 
             .ro-input-group
-                input.form-control(type='text', placeholder='Email address')
-                input.form-control(type='password', placeholder='Password')
+                input.form-control(type='text', name="e", placeholder='Email address')
+                input.form-control(type='password', name="p", placeholder='Password')
             
             button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
             br
