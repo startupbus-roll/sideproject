@@ -79,6 +79,10 @@ app.configure('production', function(){
     app.use(express.errorHandler()) 
 });
 
+// if not authorized, send to /
+
+// if authorized, redirect to appropriate dashboard
+
 //-----------------------------------------------------------------------------
 // Notifications
 //-----------------------------------------------------------------------------
@@ -247,19 +251,41 @@ app.get('/flights/:from-:to/:date', function (req, res) {
 app.get('/flight/:id', function (req, res) {
 
     res.render('single', {
-
+        trip: models.flights.trip
     });
 
 });
 
-// the listed flights page
-app.get('/blahblahblah', function (req, res) {
+app.post('/listings', function (req, res) {
+
+    models.listing.create({}, function (err) {
+        res.redirect('/listings');
+    });
+
+});
+
+app.get('/listings', function (req, res) {
+
     res.render('listed', {
 
     });
+
+});
+
+// // create a listing
+// app.post('/flight/:id/list', function (req, res) {
+
+//     console.log(req.body);
+//     res.redirect('/blahblahblah');
+
+// });
+
+// the listed flights page
+app.get('/blahblahblah', function (req, res) {
 });
 
 app.get('/employee/dashboard', function (req, res) {
+    console.log('current id:' + req.session.id);
     res.render('employee_dashboard', {
 
     });
@@ -334,9 +360,11 @@ app.post('/signup.:ext?', function (req, res) {
     }
 
     function success (user) {
+
         app.emit('employee signup', user);
         req.flash('success', "Thanks for signing up! We're sending you an email.");
-        res.redirect('/signup');
+        res.redirect('/employee/dashboard');
+        
     }
 
     function failure (err) {
@@ -415,11 +443,11 @@ app.post('/employee/login', function (req, res) {
         if (err) {
             req.flash('error', err.message);
             res.redirect('/employee/login');
-            // res.send('err:'+err);
         }
-
-        else
-            res.redirect('/employee/dashboard')
+        else {
+            req.session.current_id = employee.id;
+            res.redirect('/employee/dashboard');
+        }
 
     });
 

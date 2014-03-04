@@ -1,28 +1,66 @@
+var flights = {};
+var debug = require('debug')('flights');
+var uuid = require('uuid').v4;
 
-// for the various types of airlines
-var util = require('util');
-var dateformat = require('dateformat');
+flights.findById = function (id, callback) {
+    debug('findById:', id);
+    members.findOne({id: id}, function (err, member) {
+        if (member && member._id)
+            delete member._id;
+        callback(err, member);
+    });
+};
 
-var Source = function (name) {
+flights.trip = {
+
+	id: '3c11ebf2-9376-4f7f-9aa0-1b62f0c71ba8',
+
+	airline: 'AA',
+
+	from: 'DFW',
+	to: 'LGA',
+
+	segments: [
+		{
+
+			depart: '2014-03-05T18:06',
+			arrive: '2014-03-05T20:00',
+
+			from: 'DFW',
+			to: 'LGA',
+
+			flight_number: '123'
+
+		}
+	],
+
+	capacity:  160,
+	available:  20,
+
+	listed: []
 
 };
 
-Source.prototype = {
+function book (flight) {
+	// go look up the flight & update the booked
+	// sort the list
+}
 
-	search: function () {
-		throw 'unimplemented';
-	}
+function list (flight, employee) {
 
-};
+}
 
-var Delta = function () { };
-util.inherits(Source, Delta);
+function list (flight, member) {
 
-Delta.search = function (source, dest, depart) {
+}
 
-	
+function routes () {
+	// 
+	return {
+		AA: {
+			DFW: ['LGA']
+		}
+	};
+}
 
-};
-
-exports.delta = new Delta();
-exports.aa    = new AA();
+module.exports = flights;
