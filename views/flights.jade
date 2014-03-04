@@ -1,21 +1,33 @@
 extends layout
 
 block content
+  include nav
+  
+  .container
 
-    .container
+    .row.ro-full-width.ro-top-indicator.text-center.navbar-fixed-top
+      strong AUS → NYC, Mar 3
 
-      h1 hello
-      .well.well-sm.ro-full-width
-        | AUS → NYC, Mar 3
+  ul.list-group.ro-list.text-center
 
-      // TODO: add arrow indicators on right of list items
+    //- - for trip in trips
 
-      ul.list-group.ro-list.text-center
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
 
-        - for trip in trips
 
-          include row
+    // Repeat
 
-        // Repeat
-
-        // End repeat
+    // End repeat

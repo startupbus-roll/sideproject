@@ -18,25 +18,27 @@ html.no-js <!--<![endif]-->
       link(rel='stylesheet', href='/assets/stylesheets/screen.css')
 
   body
+    
+    .ro-app-wrap
+      
+      block header
 
-    block header
+      block flash
+        - if (typeof flash !== 'undefined')
+            #flash-messages.container.ro-flash-container
+                if flash.success
+                  #flash.alert.alert-success #{flash.success[0]}
+                if flash.info
+                  #flash.alert.alert-info #{flash.info[0]}
+                if flash.error
+                  #flash.alert.alert-danger #{flash.error[0]}
 
-    block flash
-      - if (typeof flash !== 'undefined')
-          #flash-messages.container.ro-flash-container
-              if flash.success
-                #flash.alert.alert-success #{flash.success[0]}
-              if flash.info
-                #flash.alert.alert-info #{flash.info[0]}
-              if flash.error
-                #flash.alert.alert-danger #{flash.error[0]}
+      block content
+        h2 Content
+        p This is the default content block from layout.jade
 
-    block content
-      h2 Content
-      p This is the default content block from layout.jade
+      block footer
 
-    block footer
-
-      block scripts
-        script(type="text/javascript", src="/assets/js/vendor/jquery-1.11.0.min.js").
-        script(type="text/javascript", src="/assets/js/main.js").
+        block scripts
+          script(type="text/javascript", src="/assets/js/vendor/jquery-1.11.0.min.js").
+          script(type="text/javascript", src="/assets/js/main.js").

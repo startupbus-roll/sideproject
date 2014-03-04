@@ -8,17 +8,28 @@ block content
 
 		.container
 			
+			include logos/american-logo.jade
+			p.lead
+				//- em Employee
+				em Buddy Pass, Family
+
 			form
-		
-				input.form-control(type='text', placeholder='Airline')
-				br
-				
-				.ro-input-group
+				.input-group
+					span.input-group-addon
+						span.fa.fa-map-marker
 					input.form-control(type='text', placeholder='Leaving from...')
-					input.form-control(type='text', placeholder='Traveling to..')
+				
 				br
 
-			.text-center
+				.input-group
+					span.input-group-addon
+						span.fa.fa-map-marker
+					input.form-control(type='text', placeholder='Traveling to..')
+				
+				br
+
+			.ro-calendar.well.well-sm
 				h1 Calendar here
 				
-			input.btn.btn-primary.btn-lg.btn-block(type='submit', value='Search Flights')
+			input.btn.btn-primary.btn-lg.btn-block(type='submit', value='Find Flights')
+			br

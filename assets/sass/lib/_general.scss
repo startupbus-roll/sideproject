@@ -1,3 +1,27 @@
+// Root styles
+
+* {
+
+}
+
+body {
+	// background-color: $brand-primary;
+	padding-top: 50px;
+}
+
+img {
+	max-width: 100%;
+}
+
+
+// Typography
+
+.ro-view-title {
+	margin-top: 0;
+}
+
+
+
 
 // Basic container styles
 // --------------------------------------------------
@@ -8,25 +32,32 @@
 	background-position: bottom center;
 	background-repeat: no-repeat;
 	background-size: 100% auto;
-
 }
 
-.container {
+// TODO: remove container from this
+.ro-app-wrap, .container {
 	margin: 0 auto;
-	max-width: 481px;
-}
- 
- 
-// Forms
-
-.ro-form-help {
-	padding-top: $padding-small-horizontal;
-	color: $gray;
+	max-width: $screen-xs;
 }
 
-
-// Utility
+.ro-app-wrap {
+	// border: 5px solid $ro-lblue;
+}
 
 .ro-full-width {
 	border-radius: 0;
 }
+ 
+
+ 
+// Forms
+
+.ro-form-help {
+	padding-top: 10px;
+	color: $gray;
+	font-size: 12px;
+	margin-bottom: 0;
+}
+
+
+// Utility
