@@ -420,6 +420,14 @@ app.post('/employee/login', function (req, res) {
 
 });
 
+app.get('/calendar', function (req, res) {
+
+    res.send('calendar', {
+
+    });
+
+});
+
 app.get('/buddies', function (req, res) {
     res.render('buddies', {
 
