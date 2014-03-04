@@ -115,6 +115,8 @@ app.on('employee signup', function (employee) {
         'Welcome to Roll.',
         '',
         'Your password is: ' + employee.password, 
+        '',
+        'Sign in at http://localhost:3000/employee/login',
         ''].join('\n')
     };
 
@@ -395,6 +397,30 @@ app.get('/employee/login', function (req, res) {
     });
 });
 
+app.post('/employee/login', function (req, res) {
+    console.log(req.body);
+    auth.employee({email: req.body.e, password: req.body.p}, function (err, employee) {
+        console.log('auth.employee:complete');
+        if (err) {
+            req.flash('error', err.message);
+            res.redirect('/employee/login');
+            // res.send('err:'+err);
+        }
+
+        else
+            res.redirect('/employee/dashboard')
+
+    });
+
+});
+
+app.get('/buddy', function (req, res) {
+
+    res.render('buddy', {
+        // when you add a buddy -> create a sponsorship
+    });
+});
+
 app.get('/buddy/login', function (req, res) {
     res.render('buddy_login', {
         user: req.user,
@@ -408,22 +434,35 @@ app.get('/success', function (req, res) {
 
 });
 
-app.post('/employee/login', function (req, res) {
-    console.log(req.body);
-    auth.employee({email: req.body.e, password: req.body.p}, function (err, employee) {
-        if (err)
-            res.send('err:'+err);
-        else
-            res.redirect('/employee/dashboard')
+
+
+app.get('/calendar', function (req, res) {
+
+    res.render('calendar', {
 
     });
 
 });
 
 app.get('/buddies', function (req, res) {
-    res.render('buddies', {
 
+    // get the current user
+    var e = models.employees.findByEmail('seye.ojumu@gmail.com', function (err, employee) {
+        if (err)
+            return res.send('err:' + err);
+        models.sponsorships.findBySponsor(employee, function (err, sponsorships) {
+            if (err)
+                return res.send('err:'+err);
+            else
+                return res.send(sponsorships);
+        });
     });
+
+    // res.render('buddies', {
+
+
+
+    // });
 });
 
 app.post('/buddy/login', auth.authenticate({successFlash: 'Login successful!'}), function (req, res) {
