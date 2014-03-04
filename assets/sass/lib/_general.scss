@@ -6,8 +6,22 @@
 
 html, body, .ro-app-wrap {
 	height: 100%;
+	position: relative;
+}
+
+body {
+	background-image: url('../images/bottom-bkgd.png');
+	background-attachment: fixed;
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+
+	@media (min-width: $screen-sm-min) {	
+		background-image: url('../images/bottom-bkgd@2x.png') !important;
+	}
 
 }
+
 
 img {
 	max-width: 100%;
@@ -32,14 +46,17 @@ img {
 }
 
 
-// TODO: remove container from this
+// TODO: make an ro-container class
 .ro-app-wrap, .container {
 	margin: 0 auto;
 	max-width: $screen-xs;
 }
 
+.container {
+}
+
 .ro-app-wrap {
-	// border: 5px solid $ro-lblue;
+
 }
 
 .ro-full-width {

@@ -9742,35 +9742,51 @@ button.close {
 /* line 7, ../sass/lib/_general.scss */
 html, body, .ro-app-wrap {
   height: 100%;
+  position: relative;
 }
 
 /* line 12, ../sass/lib/_general.scss */
+body {
+  background-image: url("../images/bottom-bkgd.png");
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+@media (min-width: 768px) {
+  /* line 12, ../sass/lib/_general.scss */
+  body {
+    background-image: url("../images/bottom-bkgd@2x.png") !important;
+  }
+}
+
+/* line 26, ../sass/lib/_general.scss */
 img {
   max-width: 100%;
 }
 
-/* line 19, ../sass/lib/_general.scss */
+/* line 33, ../sass/lib/_general.scss */
 .ro-view-title {
   margin-top: 0;
 }
 
-/* line 30, ../sass/lib/_general.scss */
+/* line 44, ../sass/lib/_general.scss */
 .ro-with-nav {
   padding-top: 50px;
 }
 
-/* line 36, ../sass/lib/_general.scss */
+/* line 50, ../sass/lib/_general.scss */
 .ro-app-wrap, .container {
   margin: 0 auto;
   max-width: 480px;
 }
 
-/* line 45, ../sass/lib/_general.scss */
+/* line 62, ../sass/lib/_general.scss */
 .ro-full-width, .ro-list .list-group-item:first-child, .ro-list .list-group-item:last-child {
   border-radius: 0;
 }
 
-/* line 52, ../sass/lib/_general.scss */
+/* line 69, ../sass/lib/_general.scss */
 .ro-form-help {
   padding-top: 10px;
   color: #555555;
@@ -9811,27 +9827,18 @@ img {
   background-color: #fff;
 }
 
-/* line 57, ../sass/lib/_app.scss */
-.ro-dashboard {
-  height: 100%;
-  background-image: url("../images/bottom-bkgd.png");
-  background-attachment: fixed;
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-}
-/* line 65, ../sass/lib/_app.scss */
+/* line 59, ../sass/lib/_app.scss */
 .ro-dashboard .logo {
   max-width: 90%;
   margin-top: 32px;
 }
 
-/* line 77, ../sass/lib/_app.scss */
+/* line 71, ../sass/lib/_app.scss */
 #flash {
   margin: 0 auto 10px;
 }
 
-/* line 81, ../sass/lib/_app.scss */
+/* line 75, ../sass/lib/_app.scss */
 .ro-form-signin {
   position: relative;
   font-size: 16px;
@@ -9841,38 +9848,38 @@ img {
   box-sizing: border-box;
 }
 
-/* line 90, ../sass/lib/_app.scss */
+/* line 84, ../sass/lib/_app.scss */
 .ro-input-group {
   margin: 10px 0;
 }
-/* line 94, ../sass/lib/_app.scss */
+/* line 88, ../sass/lib/_app.scss */
 .ro-input-group input[type="text"]:first-child, .ro-input-group input[type="email"]:first-child, .ro-input-group input[type="password"]:first-child {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* line 100, ../sass/lib/_app.scss */
+/* line 94, ../sass/lib/_app.scss */
 .ro-input-group input[type="text"]:last-child, .ro-input-group input[type="email"]:last-child, .ro-input-group input[type="password"]:last-child {
   margin-top: -1px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-/* line 110, ../sass/lib/_app.scss */
+/* line 104, ../sass/lib/_app.scss */
 .form-control {
   font-size: 16px;
 }
 
-/* line 119, ../sass/lib/_app.scss */
+/* line 113, ../sass/lib/_app.scss */
 .ro-calendar {
   height: 200px;
 }
 
-/* line 128, ../sass/lib/_app.scss */
+/* line 122, ../sass/lib/_app.scss */
 .ro-list {
   padding-top: 30px;
 }
-/* line 130, ../sass/lib/_app.scss */
+/* line 124, ../sass/lib/_app.scss */
 .ro-list .list-group-item {
   border-width: 3px;
   border-color: #fff;

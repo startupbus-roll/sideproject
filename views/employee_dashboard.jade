@@ -2,14 +2,21 @@ extends layout
 
 block content
 
-
     .container
       img.logo(src='../assets/images/logo.png', alt='Roll Logo')
-      h2 Hey Employee
+      
+      hr
+      p.lead Hey Employee!
+      p Search flights and add friends and family to your buddy list here. 
       // TODO: remove brs
+      a.btn.btn-lg.btn-primary.btn-block(href="/search") 
+            i.fa.fa.fa-plane.ro-icon-lg
+            | Search Flights
       br
-      a.btn.btn-lg.btn-primary.btn-block(href="/search")  Search Flights
+      button.btn.btn-lg.btn-primary.btn-block(type='submit')
+            i.fa.fa.fa-list.ro-icon-lg
+            | See Listed Flights
       br
-      button.btn.btn-lg.btn-primary.btn-block(type='submit') See Listed Flights
-      br
-      a.btn.btn-lg.btn-primary.btn-block(href='/buddies') Manage Buddies
+      a.btn.btn-lg.btn-primary.btn-block(href='/buddies') 
+            i.fa.fa.fa-group.ro-icon-lg
+            | &nbsp;Manage Buddies
