@@ -2,6 +2,7 @@
 
    -> submit & redirect
       -> create listings
+      -> model listings
    - change the text of the button
    - flash a little something
 

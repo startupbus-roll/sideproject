@@ -79,6 +79,10 @@ app.configure('production', function(){
     app.use(express.errorHandler()) 
 });
 
+// if not authorized, send to /
+
+// if authorized, redirect to appropriate dashboard
+
 //-----------------------------------------------------------------------------
 // Notifications
 //-----------------------------------------------------------------------------
