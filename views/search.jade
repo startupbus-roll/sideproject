@@ -7,18 +7,19 @@ block header
 block content
 
 		.container
-			
-			form
-		
-				input.form-control(type='text', placeholder='Airline')
-				br
-				
-				.ro-input-group
-					input.form-control(type='text', placeholder='Leaving from...')
-					input.form-control(type='text', placeholder='Traveling to..')
+
+			form(action="/search", method="POST")
+
+				input.form-control(type='text', placeholder='Airline', value="American")
 				br
 
-			.text-center
-				h1 Calendar here
-				
-			input.btn.btn-primary.btn-lg.btn-block(type='submit', value='Search Flights')
+				.ro-input-group
+					input.form-control(type='text', name="from", placeholder='Leaving from...', value="DFW")
+					input.form-control(type='text', name="to", placeholder='Traveling to..', value="LGA")
+					input(type="hidden", name="depart", value="2014-03-04")
+				br
+
+				.text-center
+					h1 Calendar here
+
+				input.btn.btn-primary.btn-lg.btn-block(type='submit', value='Search Flights')

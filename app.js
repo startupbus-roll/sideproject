@@ -252,21 +252,17 @@ app.get('/employee/dashboard', function (req, res) {
 
 app.get('/search', function (req, res) {
 
-
     res.render('search', {
 
     });
 
-    // // from
-    // // to
-    // // yyyy-mm-dd
+});
 
-    // models.trip.fake({source: req.params.from, destination: req.params.to}, function (err, trips) {
-    //     if (err)
-    //         res.send(''+err);
-    //     else 
-    //         res.send(trips);
-    // });
+app.post('/search', function (req, res) {
+
+    console.log(req.body);
+    res.redirect('/flights/' + req.body.from + '-' + req.body.to + '/' + req.body.depart);
+    // res.send('foo');
 
 });
 
@@ -450,19 +446,16 @@ app.get('/buddies', function (req, res) {
     var e = models.employees.findByEmail('seye.ojumu@gmail.com', function (err, employee) {
         if (err)
             return res.send('err:' + err);
+
         models.sponsorships.findBySponsor(employee, function (err, sponsorships) {
             if (err)
                 return res.send('err:'+err);
             else
                 return res.send(sponsorships);
         });
+
     });
 
-    // res.render('buddies', {
-
-
-
-    // });
 });
 
 app.post('/buddy/login', auth.authenticate({successFlash: 'Login successful!'}), function (req, res) {
