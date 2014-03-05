@@ -498,22 +498,25 @@ app.get('/calendar', function (req, res) {
 });
 
 app.get('/buddies', function (req, res) {
-
-    // get the current user
-    var e = models.employees.findByEmail('seye.ojumu@gmail.com', function (err, employee) {
-        if (err)
-            return res.send('err:' + err);
-
-        models.sponsorships.findBySponsor(employee, function (err, sponsorships) {
-            if (err)
-                return res.send('err:'+err);
-            else
-                return res.render('buddies', {
-                    sponsorships: sponsorships
-                });
-        });
-
+    return res.render('buddies', {
+        sponsorships: []
     });
+
+    // // get the current user
+    // var e = models.employees.findByEmail('seye.ojumu@gmail.com', function (err, employee) {
+    //     if (err)
+    //         return res.send('err:' + err);
+
+    //     models.sponsorships.findBySponsor(employee, function (err, sponsorships) {
+    //         if (err)
+    //             return res.send('err:'+err);
+    //         else
+    //             return res.render('buddies', {
+    //                 sponsorships: sponsorships
+    //             });
+    //     });
+
+    // });
 
 });
 
