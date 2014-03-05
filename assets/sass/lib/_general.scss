@@ -5,6 +5,8 @@
 }
 
 body {
+	border-top: 5px solid $brand-primary;
+
 	background-image: url('../images/bottom-bkgd.png');
 	background-attachment: fixed;
 	background-position: bottom center;
@@ -81,4 +83,12 @@ hr {
 
 .ro-push {
 	height: 60px;
+}
+
+
+
+// Bootstrap Overrides
+
+.lead {
+	font-weight: 400;	
 }
