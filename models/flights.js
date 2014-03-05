@@ -1,4 +1,7 @@
-var flights = {};
+
+var DB = require('../lib/database').DB
+var flights = DB.collection('flights')
+
 var debug = require('debug')('flights');
 var uuid = require('uuid').v4;
 
