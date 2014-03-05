@@ -296,10 +296,10 @@ app.get('/employee/dashboard', function (req, res) {
     });
 });
 
-app.get('/search', function (req, res) {
+app.get('/search',  function (req, res) {
 
     res.render('search', {
-
+        user: req.user
     });
 
 });
@@ -498,6 +498,7 @@ app.get('/calendar', function (req, res) {
 });
 
 app.get('/buddies', function (req, res) {
+
     return res.render('buddies', {
         sponsorships: []
     });
