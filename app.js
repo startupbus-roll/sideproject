@@ -289,12 +289,15 @@ app.get('/listings', function (req, res) {
 app.get('/blahblahblah', function (req, res) {
 });
 
-app.get('/employee/dashboard', function (req, res) {
-    console.log('current id:' + req.session.id);
-    res.render('employee_dashboard', {
-
+app.get(
+    '/employee/dashboard', 
+    auth.
+    function (req, res) {
+        console.log('current id:' + req.session.id);
+        res.render('employee_dashboard', {
+            listings: [{available:3,capacity:100,listed:[null],id:12}]
+        });
     });
-});
 
 app.get('/search', function (req, res) {
 
