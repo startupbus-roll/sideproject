@@ -1,11 +1,21 @@
 extends layout
 
 block content
+  include nav
+  
+  .container.ro-with-nav
 
-  .container
+    .row.ro-full-width.ro-top-indicator.text-center.navbar-fixed-top
+      // TODO: remove this space
+      strong.lead Listed Flights
 
-    ul
+  ul.list-group.ro-list
 
     - for listing in listings
 
-        include listing
+      include listing
+
+
+    // Repeat
+
+    // End repeat

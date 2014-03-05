@@ -267,7 +267,7 @@ app.post('/listings', function (req, res) {
 app.get('/listings', function (req, res) {
 
     res.render('listed', {
-        listings: [null, null]
+        listings: [{available:3,capacity:100,listed:[null],id:12}, {available:3,capacity:100,listed:[null],id:12}]
     });
 
 });

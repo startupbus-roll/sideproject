@@ -1,3 +1,22 @@
-
-
-li LISTING
+li.list-group-item.list-group-item-danger
+    p.panel.lead.text-center.ro-item-crucial 
+        strong.lead AUS → NYC, Mar 3
+        br
+        | 6:00 am - 12:00 pm, 1 stop
+    .text-center
+        .col-xs-3
+            span.lead #{listing.available}
+            br
+            small Available
+        .col-xs-3
+            span.lead #{listing.listed.length}
+            br
+            small Listed
+        .col-xs-3
+            span.lead #{listing.capacity}
+            br
+            small Capacity
+        .col-xs-3.ro-arrow-nav.text-right
+            strong
+                a(href="/flight/#{listing.id}")
+                    i.fa.fa-angle-right
