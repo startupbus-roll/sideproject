@@ -3,31 +3,28 @@ extends layout
 block content
   include nav
 
-  .container
-    
-    h2 Your Buddies
-    p.lead Using 4/7 buddy passes
-    ul.list-group
-      li.list-group-item.list-group-item-info
+  .container.ro-with-nav
+    br
+    p.text-center.lead.ro-lead-lg Using 4/16 buddy passes
+    hr
+    ul.list-group.ro-list
+      li.list-group-item
         | Joyce Leifer
         small.pull-right
           em family
-      li.list-group-item.list-group-item-info
+      li.list-group-item
         | Ben Schenck
         small.pull-right
           em family
-      li.list-group-item.list-group-item-info
+      li.list-group-item
         | Cheryl Levin
         small.pull-right
           em friend
-      li.list-group-item.list-group-item-warning.disabled
+      li.list-group-item.text-warning
         | James Schenck
         small
           em &nbsp; pending
         small.pull-right
-          em family
-      - for (var i = 0; i < 3; i++)
-        li.list-group-item 
-          a(href="/buddy") + Buddy
-      //- li.list-group-item + Buddy
-      //- li.list-group-item + Buddy
+          em family 
+      li.list-group-item
+        a(href="/buddy") + Buddy

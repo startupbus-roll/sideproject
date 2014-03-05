@@ -74,12 +74,7 @@ invite buddies flow
    . shows the status of the buddy 
      - active
      - pending (they haven't logged in)
-     . has a flight request
-       - lists that need to be approved
-       - lists that have been approved
-       - reject lists request
    . allow you add buddies
-   . remove buddies
 
 6. add buddy page
    . email
