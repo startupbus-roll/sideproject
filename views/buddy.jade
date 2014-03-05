@@ -1,12 +1,15 @@
 extends layout
 
 block content
-  .container
-    form.form-signin
-      h2.form-signin-heading Add a Buddy
-      input.form-control(type='text', placeholder='Name', autofocus='')
-      br
-      input.form-control(type='email', placeholder='Email', autofocus='')
+  include nav
+  
+  .container.ro-with-nav
+    br
+    p.lead.text-center.ro-lead-lg Add a Buddy
+    form
+      .ro-input-group
+        input.form-control(type='text', placeholder='Name', autofocus='')
+        input.form-control(type='email', placeholder='Email', autofocus='')
       // TODO: remove these brs
       br
       select.form-control

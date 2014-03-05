@@ -8,10 +8,6 @@
 	margin: $padding-small-vertical auto 0;
 }
 
-.login-logo {
-	
-}
-
 
 
 
@@ -38,8 +34,7 @@
 }
 
 .ro-top-indicator {
-	font-size: 12px;
-	height: 35px;
+	height: 38px;
 	padding: 6px 0; 
 	color: $brand-primary;
 	margin-top: 50px;
@@ -125,7 +120,10 @@
 // Search
 
 .ro-calendar {
-	height: 200px;
+	td:hover {
+		background-color: $gray-lighter;
+	}
+
 }
 
 .ro-cal-col {
@@ -137,7 +135,7 @@
 // Lists
 
 .ro-list {
-	padding-top: 30px;
+	padding-top: 38px;
 	.list-group-item {
 		border-width: 7px;
 		border-color: #fff;
@@ -154,7 +152,7 @@
 
 .ro-item-crucial {
 	margin-bottom: 10px;
-	font-weight: 500;
+	// font-weight: 500;
 }
 
 // Listed list

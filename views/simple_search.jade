@@ -1,0 +1,40 @@
+extends layout
+
+block header
+
+    include nav
+
+block content
+
+        .container.ro-with-nav
+            
+            include logos/american-logo.jade
+            p.lead
+                em Buddy Pass, Family
+
+            form(action="/search", method="POST")
+
+                hr   
+                .row
+                    .col-xs-6
+                        label.lbl
+                            span.lead Depart
+                        select.form-control
+                            option Poop
+                            option Fart
+                        
+                    .col-xs-6
+                        label
+                            span.lead Arrive
+                        select.form-control
+                            option Poop
+                            option Fart
+                        
+                br
+                hr
+
+                .ro-calendar
+                    input(type="hidden", name="depart", value="2014-03-04")
+                    include calendar
+                input.btn.btn-primary.btn-lg.btn-block(type='submit', value='Find Flights')
+                br
