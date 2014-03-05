@@ -1,8 +1,8 @@
-li.list-group-item.list-group-item-success
+li.list-group-item.list-group-item-danger
     p.panel.well-sm.text-center
-        strong.lead AUS → NYC, Mar 3
+        strong.lead #{listing.from} → #{listing.to}, #{listing.day_string}
         br
-        | 6:00 am - 12:00 pm, 1 stop
+        | #{listing.depart_string}- #{listing.arrive_string}, #{listing.stops} stop
 
     .text-center
         .col-xs-3

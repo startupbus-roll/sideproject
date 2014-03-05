@@ -48,10 +48,17 @@ html.no-js <!--<![endif]-->
 
           script.
             $(function () {
+              function pad(s) { 
+                if (s.length == 1)
+                  return '0' + s;
+                else 
+                  return s;
+              }
               $('.sye-calendar').on('click', 'td', function () {
                 $('.sye-calendar td').removeClass('success');
                 console.log('clicked', $(this));
                 $(this).toggleClass('success');
+                $('#hidden_date').val('2014-03-' + pad($(this).text()));
               });
             });
 

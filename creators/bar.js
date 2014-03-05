@@ -1,10 +1,15 @@
 var fs = require('fs');
+var uuid = require('uuid').v4;
 
 var data = fs.readFileSync('flights.1.data', {encoding: 'utf-8'});
 
 data = data.replace(/\*/g, '');
 var lines = data.split('\n');
+function random_int (max) { 
+	return Math.floor(Math.random() * max);
+}
 
+var p = [];
 // lines.forEach(function (line) {
 for (var i = 0; i < lines.length; i += 2) {
 
@@ -70,10 +75,10 @@ for (var i = 0; i < lines.length; i += 2) {
 	};
 
 	// if (row.from == 'DFW' && row.to == 'LGA')  {
-		console.log(row.depart);
-		console.log(row.depart.slice(-1));
-		console.log(row.depart.slice(-3, -1));
-		console.log(row.depart.slice(0, -3));
+		// console.log(row.depart);
+		// console.log(row.depart.slice(-1));
+		// console.log(row.depart.slice(-3, -1));
+		// console.log(row.depart.slice(0, -3));
 
 		var h  = parseInt(row.depart.slice(0, -3), 10);
 		var m  = parseInt(row.depart.slice(-3, -1), 10);
@@ -86,7 +91,7 @@ for (var i = 0; i < lines.length; i += 2) {
 		var ap = row.arrive.slice(-1) == 'A';
 		h = h + (ap ? 0 : 12);
 		var arrive = new Date(2014, 2, 5, h, m);
-		console.log(h + (ap ? 0 : 12), m, ap);
+		// console.log(h + (ap ? 0 : 12), m, ap);
 
 		var c = parseInt(row.capacity, 10);
 
@@ -104,8 +109,18 @@ for (var i = 0; i < lines.length; i += 2) {
 
 		};
 
-		console.log(
-			a,
-			b);
+		p.push({
+			
+			id: uuid(),
+
+			capacity: c,
+
+			available: random_int(15),
+
+			stops: 0,
+			segments: [a, b]
+		});
 
 }
+
+console.log(JSON.stringify(p));

@@ -256,14 +256,17 @@ app.get('/flights/:from-:to/:date', function (req, res) {
     models.trip.fake({source: req.params.from, destination: req.params.to}, function (err, trips) {
 
         res.render('flights', {
-            itinerary: {from: 'DFW', to: 'NYC', depart: depart},
+            itinerary: {from: req.params.from, to: req.params.to, depart: depart},
             trips: trips.map(function (t) {
-                if (t.available < t.listed.length)
+                // console.log(t.available, t.listed.length);
+                // console.lgo(t.available < t)
+                if (parseInt(t.available) < t.listed.length)
                     t.score = 0;
-                if (t.available == t.listed.length)
+                if (parseInt(t.available) == t.listed.length)
                     t.score = 0.5;
-                if (t.available > t.listed.length)
+                if (parseInt(t.available) > t.listed.length)
                     t.score = 1;
+                // t.score = 0.5;
                 return t;
 
             })
@@ -274,8 +277,25 @@ app.get('/flights/:from-:to/:date', function (req, res) {
 
 app.get('/flight/:id', function (req, res) {
 
-    res.render('single', {
-        trip: models.flights.trip
+    models.trip.findById(req.params.id, function (err, trip) {
+        if (err)
+            res.send(err);
+        else 
+            console.log(trip);
+
+        // var t = trip;
+        if (parseInt(trip.available) < trip.listed.length)
+            trip.score = 0;
+        if (parseInt(trip.available) == trip.listed.length)
+            trip.score = 0.5;
+        if (parseInt(trip.available) > trip.listed.length)
+            trip.score = 1;
+        trip.ahead = trip.listed.filter(function (x) { return x == 'family'; }).length;
+        trip.equ = trip.listed.filter(function (x) { return x == 'friend'; }).length;
+
+        res.render('single', {
+            trip: trip
+        });
     });
 
 });
@@ -284,6 +304,8 @@ app.post('/listings', function (req, res) {
 
     console.log(req.body);
     console.log(req.session);
+
+    req.session.listing = req.body.id;
 
     models.listing.create(
         {flight_id: req.body.id, user_id: req.session.id, user_type: req.session.type},
@@ -295,9 +317,37 @@ app.post('/listings', function (req, res) {
 
 app.get('/listings', function (req, res) {
 
-    res.render('listed', {
-        listings: [{available:3,capacity:100,listed:[null],id:12}, {available:3,capacity:100,listed:[null],id:12}]
-    });
+    // console.log(models.listing.last);
+
+    // var listing = models.listing.last;
+    // listing.from = listing.segments[0].from;
+    // listing.to = listing.segments.slice(-1)[0].to;
+
+// console.log(models.listing.last);
+//     res.render('listed', {
+//         listings: [models.listing.last] // [{available:3,capacity:100,listed:[null],id:12}, {available:3,capacity:100,listed:[null],id:12}]
+//     });
+
+    if (req.session.listing) {
+        models.trip.findById(req.session.listing, function (err, listings) {
+            if (parseInt(listings.available) < listings.listed.length)
+                listings.klass = 'success';
+            if (parseInt(listings.available) == listings.listed.length)
+                listings.klass = 'warning';
+            if (parseInt(listings.available) > listings.listed.length)
+                listings.klass = 'danger';    
+            // if (listings.)       
+            console.log(err, listings);
+            res.render('listed', {
+                listings: [listings] // [{available:3,capacity:100,listed:[null],id:12}, {available:3,capacity:100,listed:[null],id:12}]
+            });
+        });
+    }
+    else {
+        res.render('listed', {
+            listings: [] // [{available:3,capacity:100,listed:[null],id:12}, {available:3,capacity:100,listed:[null],id:12}]
+        });
+    }
 
 });
 

@@ -8,6 +8,8 @@ var bcrypt = require('bcrypt');
 
 listings.ensureIndex({email: 1}, {unique: true, dropDups: true}, function () { });
 
+exports.last = null;
+
 function verify_listing (listing, callback) {
     var verification = {};
     if (!listing.name)
@@ -25,6 +27,10 @@ function verify_listing (listing, callback) {
 listings.findById = function (id, callback) {
     debug('findById:', id)    
 }
+
+listings.findByUser = function (userid, callback) {
+    listings.find({user_id: userid}).toArray(callback);
+};
 
 listings.findByEmail = function (email, callback) {
     listings.findOne({email: email}, function (err, listing) {
@@ -58,6 +64,9 @@ listings.create = function (listing, callback) {
 
     });
 
+
+    exports.last = listing;
+    console.log('inserting:' +JSON.stringify(listing));
 
     listings.insert(listing, {safe: true}, function (err, listing) {
         callback(err, listing);

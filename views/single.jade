@@ -3,32 +3,68 @@ extends layout
 block content
   include nav
   
+  //- - var ahead = trip.listed.filter(function (x) { return x == 'family'; }).length;
+  //- - var equ = trip.listed.filter(function (x) { return x == 'friend'}).length;
+
   .container.ro-with-nav
     br
-    p.text-center.lead AUS &rarr; NYC, Mar 3
+    p.text-center.lead #{trip.from} &rarr; #{trip.to}, #{trip.day_string}
     
     // TODO: remove brs, style it
 
-    .alert.alert-danger.text-center.clearfix
-      .col-xs-4
-        span.lead.ro-lead-lg #{trip.available}
-        br
-        small Available
-      .col-xs-4
-        span.lead.ro-lead-lg #{trip.listed.length}
-        br
-        small Listed
-      .col-xs-4
-        span.lead.ro-lead-lg #{trip.capacity}
-        br
-        small Capacity
+    - if (trip.score > 0.5)
+      .alert.alert-success.text-center.clearfix
+        .col-xs-4
+          span.lead.ro-lead-lg #{trip.available}
+          br
+          small Available
+        .col-xs-4
+          span.lead.ro-lead-lg #{trip.listed.length}
+          br
+          small Listed
+        .col-xs-4
+          span.lead.ro-lead-lg #{trip.capacity}
+          br
+          small Capacity
+
+    - else if (trip.score < 0.5)
+      .alert.alert-danger.text-center.clearfix
+
+        .col-xs-4
+          span.lead.ro-lead-lg #{trip.available}
+          br
+          small Available
+        .col-xs-4
+          span.lead.ro-lead-lg #{trip.listed.length}
+          br
+          small Listed
+        .col-xs-4
+          span.lead.ro-lead-lg #{trip.capacity}
+          br
+          small Capacity
+
+    - else
+      .alert.alert-warning.text-center.clearfix
+
+        .col-xs-4
+          span.lead.ro-lead-lg #{trip.available}
+          br
+          small Available
+        .col-xs-4
+          span.lead.ro-lead-lg #{trip.listed.length}
+          br
+          small Listed
+        .col-xs-4
+          span.lead.ro-lead-lg #{trip.capacity}
+          br
+          small Capacity
     hr
     .clearfix.text-center
       .col-xs-6.text-danger
-        strong 3 
+        strong #{trip.ahead} 
         | Ahead of you
       .col-xs-6.text-warning
-        strong 4 
+        strong #{trip.equ} 
         | Same priority
     hr
     .well.well-sm.lead
@@ -40,27 +76,29 @@ block content
         .col-xs-5
           small Depart
           br
-          | 6:00am
+          |  #{trip.depart_string}
           
         .col-xs-5
           small Arrive 
           br
-          | 12:00pm
+          | #{trip.arrive_string}
       hr
 
-      .clearfix.text-center
-        .col-xs-1
-          i.fa.fa-times-circle&nbsp;&nbsp; 
-        .col-xs-9.text-left
-          | 1 stop at LGA
-      hr
+      //- - trip.stops > 0
+      //-   .clearfix.text-center
+      //-     .col-xs-1
+      //-       i.fa.fa-times-circle&nbsp;&nbsp; 
+      //-     .col-xs-9.text-left
+      //-       | 1 stop at LGA
+      //-   hr
       .clearfix.text-center
         .col-xs-1
           i.fa.fa-plane&nbsp;&nbsp; 
         .col-xs-10.text-left
-          | JetBlue Flight 232
+          | American Flight #{trip.number}
       
     form(action="/listings", method="POST")
       button.btn.btn-lg.btn-primary.btn-block(type='submit') List Me
+      input(type="hidden", name="id", value="#{trip.id}")
       //- button.btn.btn-lg.btn-danger.btn-block(type='submit') Remove from List
 

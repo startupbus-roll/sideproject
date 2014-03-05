@@ -7,7 +7,7 @@ block content
     br
     p.text-center.lead.ro-lead-lg Using #{sponsorships.length} / 16 buddy passes
     hr
-    ul.list-group
+    ul.list-group.lead
       - for member in sponsorships
         - if (member.unverified)
           li.list-group-item.text-warning
