@@ -19,8 +19,8 @@
 // --------------------------------------------------
 
 .ro-nav-logo {
-	// display: block;
-	// margin: 0 auto;
+	display: block;
+	margin: 0 auto;
 }
 
 .ro-icon-lg {
@@ -46,7 +46,20 @@
 	background-color: #fff;
 }
 
+.ro-arrow-nav {
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 0;
 
+	.navbar & {
+		line-height: 1.5;
+		vertical-align: middle;
+	}
+
+	a {
+		color: $gray;
+	}
+}
 
 // Views
 // --------------------------------------------------
@@ -123,7 +136,7 @@
 .ro-list {
 	padding-top: 30px;
 	.list-group-item {
-		border-width: 3px;
+		border-width: 7px;
 		border-color: #fff;
 		border-right: 0;
 		border-left: 0;
@@ -134,25 +147,12 @@
 			@extend .ro-full-width;
 		}
 	}
-
-	// .list-group-item-danger {
-	// 	border-color: $brand-danger;	
-	// }
-
-	// .list-group-item-alert {
-	// 	border-color: $brand-warning;	
-	// }
-
-	// .list-group-item-info {
-	// 	border-color: $brand-info;	
-	// }
-
-	// .list-group-item-success {
-	// 	border-color: $brand-success;	
-	// }
 }
 
-
+.ro-item-crucial {
+	margin-bottom: 10px;
+	font-weight: 500;
+}
 
 // Listed list
 

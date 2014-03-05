@@ -24,7 +24,7 @@ block content
         br
         small Capacity
     hr
-    .clearfix
+    .clearfix.text-center
       .col-xs-6.text-danger
         strong 3 
         | Ahead of you
@@ -45,6 +45,7 @@ block content
           
         .col-xs-5
           small Arrive 
+          br
           | 12:00pm
       hr
 
@@ -63,4 +64,5 @@ block content
     form(action="/listings", method="POST")
       input(type="hidden", name="id", value="#{trip.id}")
       button.btn.btn-lg.btn-primary.btn-block(type='submit') List Me
+      button.btn.btn-lg.btn-danger.btn-block(type='submit') Remove from List
 
