@@ -61,5 +61,6 @@ block content
           | JetBlue Flight 232
       
     form(action="/listings", method="POST")
+      input(type="hidden", name="id", value="#{trip.id}")
       button.btn.btn-lg.btn-primary.btn-block(type='submit') List Me
 

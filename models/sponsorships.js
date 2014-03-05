@@ -11,6 +11,8 @@ function verify_sponsorship (sponsorship, callback) {
         verification.reason = 'Please specify a sponsor.';
     if (!sponsorship.sponsored)
         verification.reason = 'Please specify a member to sponsor.';
+    if (!sponsorship.relation)
+        verification.reason = 'Please specify your relationship to this person';
 
     if (verification.reason)
         verification.invalid = true;

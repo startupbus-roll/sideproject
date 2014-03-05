@@ -32,6 +32,17 @@ function random_list (max) {
 	return p;
 }
 
+
+function find_trips () {
+
+	models.flights.find({}).toArray(function (err, trips) {
+
+		
+
+	});
+
+}
+
 exports.fake = function (options, callback) {
 	options.num |= 4;
 	var trips = [], segments, soure, dest, depart;
