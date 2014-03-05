@@ -258,9 +258,14 @@ app.get('/flight/:id', function (req, res) {
 
 app.post('/listings', function (req, res) {
 
-    models.listing.create({}, function (err) {
-        res.redirect('/listings');
-    });
+    console.log(req.body);
+    console.log(req.session);
+
+    models.listing.create(
+        {flight_id: req.body.id, user_id: req.session.id, user_type: req.session.type},
+        function (err) {
+            res.redirect('/listings');
+        });
 
 });
 
