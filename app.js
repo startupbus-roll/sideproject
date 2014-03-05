@@ -242,7 +242,17 @@ app.get('/flights/:from-:to/:date', function (req, res) {
     models.trip.fake({source: req.params.from, destination: req.params.to}, function (err, trips) {
 
         res.render('flights', {
-            trips: trips
+            itinerary: {from: 'DFW', to: 'NYC', depart: 'Mar 5'},
+            trips: trips.map(function (t) {
+                if (t.available < t.listed.length)
+                    t.score = 0;
+                if (t.available == t.listed.length)
+                    t.score = 0.5;
+                if (t.available > t.listed.length)
+                    t.score = 1;
+                return t;
+
+            })
         });
     });
 
@@ -299,10 +309,10 @@ app.get(
         });
     });
 
-app.get('/search', function (req, res) {
+app.get('/search',  function (req, res) {
 
     res.render('search', {
-
+        user: req.user
     });
 
 });
@@ -505,6 +515,7 @@ app.get('/calendar', function (req, res) {
 });
 
 app.get('/buddies', function (req, res) {
+
     return res.render('buddies', {
         sponsorships: []
     });

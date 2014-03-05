@@ -1,20 +1,68 @@
-li.list-group-item.list-group-item-danger
-    p.panel.lead.text-center.ro-item-crucial 6:00 am - 12:00 pm, 1 stop
-    .text-center
-        .col-xs-3
-            span.lead #{trip.available}
-            br
-            small Available
-        .col-xs-3
-            span.lead #{trip.listed.length}
-            br
-            small Listed
+- if (trip.score < 0.5)
+  li.list-group-item.list-group-item-danger
 
-        .col-xs-3
-            span.lead #{trip.capacity}
-            br
-            small Capacity
-        .col-xs-3.ro-arrow-nav.text-right
-            strong
-                a(href="/flight/#{trip.id}")
-                  i.fa.fa-angle-right
+
+    p.panel.lead.text-center.ro-item-crucial 6:00 am - 12:00 pm, 1 stop
+        .text-center
+            .col-xs-3
+                span.lead #{trip.available}
+                br
+                small Available
+            .col-xs-3
+                span.lead #{trip.listed.length}
+                br
+                small Listed
+
+            .col-xs-3
+                span.lead #{trip.capacity}
+                br
+                small Capacity
+            .col-xs-3.ro-arrow-nav.text-right
+                strong
+                    a(href="/flight/#{trip.id}")
+                      i.fa.fa-angle-right
+- else if (trip.score > 0.5)
+  li.list-group-item.list-group-item-success
+
+
+    p.panel.lead.text-center.ro-item-crucial 6:00 am - 12:00 pm, 1 stop
+        .text-center
+            .col-xs-3
+                span.lead #{trip.available}
+                br
+                small Available
+            .col-xs-3
+                span.lead #{trip.listed.length}
+                br
+                small Listed
+
+            .col-xs-3
+                span.lead #{trip.capacity}
+                br
+                small Capacity
+            .col-xs-3.ro-arrow-nav.text-right
+                strong
+                    a(href="/flight/#{trip.id}")
+                      i.fa.fa-angle-right
+- else 
+  li.list-group-item.list-group-item-warning
+
+    p.panel.lead.text-center.ro-item-crucial 6:00 am - 12:00 pm, 1 stop
+        .text-center
+            .col-xs-3
+                span.lead #{trip.available}
+                br
+                small Available
+            .col-xs-3
+                span.lead #{trip.listed.length}
+                br
+                small Listed
+
+            .col-xs-3
+                span.lead #{trip.capacity}
+                br
+                small Capacity
+            .col-xs-3.ro-arrow-nav.text-right
+                strong
+                    a(href="/flight/#{trip.id}")
+                      i.fa.fa-angle-right
