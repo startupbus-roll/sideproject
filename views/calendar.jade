@@ -1,39 +1,31 @@
-extends layout
-
-block styles
-    style.
-        .calendar { float: left; width: 150px; }
-        .day { border: 1px solid purple; height: 15px; width: 15px; float: left; }
-        .purple { background-color: purple; }
-
-
-block scripts
-    script(type="text/javascript", src="/assets/js/vendor/jquery-1.11.0.min.js").
-
-    script.
-        $(function () {
-            var $m, $n;
-            $('.day').on('click', function () {
-                var $c;
-                if (!$m)
-                    $c = $m = $(this);
-                else if (!$n)
-                    $c = $n = $(this);
-                else {
-
-
-
-                }
-
-                $c.addClass('purple');
-            });
-        });
-
-block content
-
-
-
-    .calendar
-        - for (var i = 0; i < 5; i++)
-            - for (var j = 0; j < 7; j++)
-                .day #{j + i * 7}
+p.ro-lead-lg.text-center 
+    i.fa.fa-calendar&nbsp;&nbsp;
+    | March 2 - 16
+.text-center
+    table.table.table-bordered
+      thead
+        tr
+          th Sun
+          th Mon
+          th Tue
+          th Wed
+          th Thu
+          th.active Fri
+          th Sat
+      tbody
+        tr
+          td 2
+          td 3
+          td 4
+          td 5
+          td 6
+          td 7
+          td 8
+        tr
+          td 9
+          td 10
+          td 11
+          td 12
+          td 13
+          td.success 14
+          td 15

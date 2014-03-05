@@ -9912,11 +9912,11 @@ hr {
   height: 200px;
 }
 
-/* line 136, ../sass/lib/_app.scss */
+/* line 139, ../sass/lib/_app.scss */
 .ro-list {
   padding-top: 30px;
 }
-/* line 138, ../sass/lib/_app.scss */
+/* line 141, ../sass/lib/_app.scss */
 .ro-list .list-group-item {
   border-width: 7px;
   border-color: #fff;
@@ -9934,7 +9934,7 @@ hr {
   clear: both;
 }
 
-/* line 152, ../sass/lib/_app.scss */
+/* line 155, ../sass/lib/_app.scss */
 .ro-item-crucial {
   margin-bottom: 10px;
   font-weight: 500;
