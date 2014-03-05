@@ -25,10 +25,10 @@ $brand-danger:          #d9534f;
 $brand-info:            $ro-lblue;
 
 $state-success-bg: 		lighten($brand-success, 40%);
-
 $state-danger-bg: 		lighten($brand-danger, 38%);
 
 $alert-info-bg: 		lighten($ro-lblue, 15%);
+$alert-warning-bg: 		lighten($brand-warning, 15%);
 
 $link-color:            $brand-primary;
 

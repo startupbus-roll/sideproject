@@ -4,11 +4,10 @@ block content
   include nav
   
   .container.ro-with-nav
-
-    h3.text-center.lead.ro-lead-lg AUS &rarr; NYC, Mar 3
+    br
+    p.text-center.lead AUS &rarr; NYC, Mar 3
     
     // TODO: remove brs, style it
-    hr
 
     .alert.alert-danger.text-center.clearfix
       .col-xs-4
@@ -63,5 +62,5 @@ block content
       
     form(action="/listings", method="POST")
       button.btn.btn-lg.btn-primary.btn-block(type='submit') List Me
-      button.btn.btn-lg.btn-danger.btn-block(type='submit') Remove from List
+      //- button.btn.btn-lg.btn-danger.btn-block(type='submit') Remove from List
 

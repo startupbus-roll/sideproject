@@ -5967,7 +5967,7 @@ a.thumbnail.active {
 
 /* line 62, ../../../../.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bootstrap-sass-3.1.0.2/vendor/assets/stylesheets/bootstrap/_alerts.scss */
 .alert-warning {
-  background-color: #fcf8e3;
+  background-color: #ca7070;
   border-color: #faebcc;
   color: #8a6d3b;
 }
@@ -9787,12 +9787,12 @@ hr {
   max-width: 480px;
 }
 
-/* line 67, ../sass/lib/_general.scss */
+/* line 60, ../sass/lib/_general.scss */
 .ro-full-width, .ro-list .list-group-item:first-child, .ro-list .list-group-item:last-child {
   border-radius: 0;
 }
 
-/* line 74, ../sass/lib/_general.scss */
+/* line 67, ../sass/lib/_general.scss */
 .ro-form-help {
   padding-top: 10px;
   color: #555555;
@@ -9800,30 +9800,30 @@ hr {
   margin-bottom: 0;
 }
 
-/* line 84, ../sass/lib/_general.scss */
+/* line 77, ../sass/lib/_general.scss */
 .ro-push {
   height: 60px;
 }
 
-/* line 92, ../sass/lib/_general.scss */
+/* line 85, ../sass/lib/_general.scss */
 .lead {
   font-weight: 400;
 }
 
-/* line 5, ../sass/lib/_app.scss */
+/* line 6, ../sass/lib/_app.scss */
 .logo {
   display: block;
   max-width: 65%;
   margin: 5px auto 0;
 }
 
-/* line 17, ../sass/lib/_app.scss */
+/* line 18, ../sass/lib/_app.scss */
 .ro-nav-logo {
   display: block;
   margin: 0 auto;
 }
 
-/* line 22, ../sass/lib/_app.scss */
+/* line 23, ../sass/lib/_app.scss */
 .ro-icon-lg {
   vertical-align: middle;
   line-height: 2;
@@ -9833,13 +9833,14 @@ hr {
   margin-right: 10px;
 }
 
-/* line 31, ../sass/lib/_app.scss */
+/* line 32, ../sass/lib/_app.scss */
 .ro-nav {
   margin-bottom: 0;
   height: 40px;
+  border-top: 5px solid #409dae;
 }
 
-/* line 36, ../sass/lib/_app.scss */
+/* line 38, ../sass/lib/_app.scss */
 .ro-top-indicator {
   height: 38px;
   padding: 6px 0;
@@ -9848,38 +9849,50 @@ hr {
   background-color: #fff;
 }
 
-/* line 44, ../sass/lib/_app.scss */
+/* line 46, ../sass/lib/_app.scss */
 .ro-arrow-nav {
   font-weight: 500;
   font-size: 32px;
   line-height: 0;
 }
-/* line 49, ../sass/lib/_app.scss */
+/* line 51, ../sass/lib/_app.scss */
 .navbar .ro-arrow-nav {
   line-height: 1.5;
   vertical-align: middle;
 }
-/* line 54, ../sass/lib/_app.scss */
+/* line 56, ../sass/lib/_app.scss */
 .ro-arrow-nav a {
   color: #555555;
 }
 
-/* line 67, ../sass/lib/_app.scss */
+/* line 69, ../sass/lib/_app.scss */
 .ro-tutorial {
   padding: 0 10px;
 }
 
-/* line 76, ../sass/lib/_app.scss */
+/* line 79, ../sass/lib/_app.scss */
+.ro-dashboard .ro-list {
+  padding-top: 0;
+}
+
+/* line 84, ../sass/lib/_app.scss */
 .ro-dash-btn {
   margin-bottom: 10px;
 }
 
-/* line 86, ../sass/lib/_app.scss */
+/* line 89, ../sass/lib/_app.scss */
+a.ro-logout {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* line 99, ../sass/lib/_app.scss */
 #flash {
   margin: 0 auto 10px;
 }
 
-/* line 90, ../sass/lib/_app.scss */
+/* line 103, ../sass/lib/_app.scss */
 .ro-form-signin {
   position: relative;
   font-size: 16px;
@@ -9889,38 +9902,38 @@ hr {
   box-sizing: border-box;
 }
 
-/* line 99, ../sass/lib/_app.scss */
+/* line 112, ../sass/lib/_app.scss */
 .ro-input-group {
   margin: 10px 0;
 }
-/* line 103, ../sass/lib/_app.scss */
+/* line 116, ../sass/lib/_app.scss */
 .ro-input-group input[type="text"]:first-child, .ro-input-group input[type="email"]:first-child, .ro-input-group input[type="password"]:first-child {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* line 109, ../sass/lib/_app.scss */
+/* line 122, ../sass/lib/_app.scss */
 .ro-input-group input[type="text"]:last-child, .ro-input-group input[type="email"]:last-child, .ro-input-group input[type="password"]:last-child {
   margin-top: -1px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-/* line 119, ../sass/lib/_app.scss */
+/* line 132, ../sass/lib/_app.scss */
 .form-control {
   font-size: 16px;
 }
 
-/* line 130, ../sass/lib/_app.scss */
+/* line 143, ../sass/lib/_app.scss */
 .ro-calendar td:hover {
   background-color: #eeeeee;
 }
 
-/* line 141, ../sass/lib/_app.scss */
+/* line 154, ../sass/lib/_app.scss */
 .ro-list {
-  padding-top: 38px;
+  padding-top: 33px;
 }
-/* line 143, ../sass/lib/_app.scss */
+/* line 156, ../sass/lib/_app.scss */
 .ro-list .list-group-item {
   border-width: 7px;
   border-color: #fff;
@@ -9938,7 +9951,8 @@ hr {
   clear: both;
 }
 
-/* line 157, ../sass/lib/_app.scss */
+/* line 170, ../sass/lib/_app.scss */
 .ro-item-crucial {
   margin-bottom: 10px;
+  border: 1px solid #eeeeee;
 }

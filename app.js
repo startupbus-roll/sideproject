@@ -456,7 +456,7 @@ app.post('/employee/login', function (req, res) {
 
     });
 
-});
+}); 
 
 app.get('/buddy', function (req, res) {
 
@@ -469,7 +469,11 @@ app.get('/buddy/dashboard', function (req, res) {
 
     res.render('buddy_dashboard', {
 
+        listings: [{available:3,capacity:100,listed:[null],id:12}]
+       
+
         // when you add a buddy -> create a sponsorship
+
     });
 });
 
