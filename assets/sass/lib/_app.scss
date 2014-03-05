@@ -1,4 +1,5 @@
 
+
 // Header
 // --------------------------------------------------
 
@@ -31,6 +32,7 @@
 .ro-nav {
 	margin-bottom: 0;
 	height: 40px;
+	border-top: 5px solid $brand-primary;
 }
 
 .ro-top-indicator {
@@ -56,23 +58,40 @@
 	}
 }
 
+
+
+
 // Views
 // --------------------------------------------------
+
+// General
+
+.ro-tutorial {
+	padding: 0 10px;
+}
+
+
 
 
 // Dashboard/home
 
 .ro-dashboard {
-
-	.logo {
-		max-width: 90%;
-		margin-top: 32px;
+	.ro-list {
+		padding-top: 0;
 	}
 }
 
 .ro-dash-btn {
 	margin-bottom: 10px;
 }
+
+// Over specifying, oops
+a.ro-logout {
+	position: absolute;
+	top: 10px;
+	right: 10px
+}
+
 
 
 // Login and sign up
@@ -117,6 +136,7 @@
 
 
 
+
 // Search
 
 .ro-calendar {
@@ -126,16 +146,13 @@
 
 }
 
-.ro-cal-col {
-	
-}
 
 
 
 // Lists
 
 .ro-list {
-	padding-top: 38px;
+	padding-top: 33px;
 	.list-group-item {
 		border-width: 7px;
 		border-color: #fff;
@@ -153,7 +170,11 @@
 .ro-item-crucial {
 	margin-bottom: 10px;
 	// font-weight: 500;
+	border: 1px solid $gray-lighter;
 }
+
+
+
 
 // Listed list
 
@@ -163,56 +184,3 @@
 // Flight detail
 
 
-
-
-
-
-
-// Footer
-// --------------------------------------------------
-
-// TODO: Sass-ify this:
-
-
-
-
-
-// Footer
-// --------------------------------------------------
-
-// TODO: Sass-ify this:
-
-// .form-signin {
-// 	max-width: 330px;
-// 	padding: 15px;
-// 	margin: 0 auto;
-// }
-// .form-signin .form-signin-heading,
-// .form-signin .checkbox {
-// 	margin-bottom: 10px;
-// }
-// .form-signin .checkbox {
-// 	font-weight: normal;
-// }
-// .form-signin .form-control {
-// 	position: relative;
-// 	font-size: 16px;
-// 	height: auto;
-// 	padding: 10px;
-// 	-webkit-box-sizing: border-box;
-// 		 -moz-box-sizing: border-box;
-// 					box-sizing: border-box;
-// }
-// .form-signin .form-control:focus {
-// 	z-index: 2;
-// }
-// .form-signin input[type="text"] {
-// 	margin-bottom: -1px;
-// 	border-bottom-left-radius: 0;
-// 	border-bottom-right-radius: 0;
-// }
-// .form-signin input[type="password"] {
-// 	margin-bottom: 10px;
-// 	border-top-left-radius: 0;
-// 	border-top-right-radius: 0;
-// }

@@ -2,21 +2,39 @@ extends layout
 
 block content
 
-    .container
+    .container.ro-dashboard
+      a.ro-logout(href="/logout") Sign out
       img.logo(src='../assets/images/logo.png', alt='Roll Logo')
       
       hr
+
       p.lead.text-center Welcome #{name || "Buddy"}!
       //- p Search flights and add friends and family to your buddy list here. 
       hr
       // TODO: remove brs
+
       a.btn.btn-lg.btn-primary.btn-block.ro-dash-btn(href="/search") 
             i.fa.fa.fa-plane.ro-icon-lg
             | &nbsp;Search Flights
-      a.btn.btn-lg.btn-primary.btn-block.ro-dash-btn(href="/listings")
-            i.fa.fa.fa-list.ro-icon-lg
-            | &nbsp;See Listed Flights
-      br
+      
+      //- a.btn.btn-lg.btn-primary.btn-block.ro-dash-btn(href="/listings")
+      //-       i.fa.fa.fa-list.ro-icon-lg
+      //-       | &nbsp;See Listed Flights
+      
       hr
-      p.text-center 
-            a(href="/logout") Sign out
+      .text-center
+            span.lead Listed Flights &nbsp;
+            a See all...
+            br
+            br
+      
+      ul.list-group.ro-list
+
+            - for listing in listings
+
+                  include db_listing
+
+      // Repeat
+
+      // End repeat
+
