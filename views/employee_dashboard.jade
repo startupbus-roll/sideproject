@@ -2,12 +2,12 @@ extends layout
 
 block content
 
-    .container
+    .container.ro-dashboard
       a.ro-logout(href="/logout") Sign out
       img.logo(src='../assets/images/logo.png', alt='Roll Logo')
       
       hr
-      p.lead.text-center Welcome #{name}!
+      p.lead.text-center Welcome #{user && user.name || "Employee"}!
       //- p Search flights and add friends and family to your buddy list here. 
 
       a.btn.btn-lg.btn-primary.btn-block.ro-dash-btn(href="/search") 
@@ -23,5 +23,15 @@ block content
             | &nbsp;Manage Buddies
       br
       hr
-      p.text-center 
-            a(href="/logout") Sign out
+      
+      //- .text-center
+            span.lead Listed Flights &nbsp;
+            a See all...
+            br
+            br
+      
+      //- ul.list-group.ro-list
+
+      //-       - for listing in listings
+
+      //-             include db_listing

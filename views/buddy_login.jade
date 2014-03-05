@@ -8,11 +8,11 @@ block content
         p Sign in using your email and the secure password you received via email.
         p Don't have a login? An airline employee can give you access.
         hr
-        form.ro-form-signin
+        form.ro-form-signin(action="/buddy/login", method="POST")
             
             .ro-input-group
-                input.form-control(type='text', placeholder='Email address')
-                input.form-control(type='password', placeholder='Password')
+                input.form-control(type='text', name="e", placeholder='Email address')
+                input.form-control(type='password', name="p", placeholder='Password')
             
             button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
         br

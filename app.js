@@ -176,7 +176,9 @@ app.get('/employee', function (req, res) {
 //-----------------------------------------------------------------------------
 
 app.post('/sponsorships', function (req, res) {
-    var sponsor = req.body.sponsor, name = req.body.name, email = req.body.email, priority = 0;
+
+    console.log(req.body);
+    var sponsor = req.body.sponsor, name = req.body.name, email = req.body.email, priority = req.body.priority, relation = req.body.relation;
 
     async.parallel([
         function (callback) {
@@ -186,7 +188,7 @@ app.post('/sponsorships', function (req, res) {
             });
         },
         function (callback) {
-            models.sponsorships.create({sponsor: sponsor, sponsored: email}, function (err) {
+            models.sponsorships.create({sponsor: sponsor, sponsored: email, relation: relation}, function (err) {
                 console.log('created:sponsor', sponsor, 'member', email);
                 callback(err);
             });
@@ -194,8 +196,10 @@ app.post('/sponsorships', function (req, res) {
         function (err) {
             if (err)
                 res.send(400, 'err:'+err);
-            else
-                res.send('created sponsorship');
+            else {
+                res.redirect("/buddies");
+                // res.send('created sponsorship');
+            }
         });
 
         // },
@@ -226,7 +230,13 @@ app.get('/flights/:from-:to/:date.json', function (req, res) {
     // to
     // yyyy-mm-dd
 
-    models.trip.fake({source: req.params.from, destination: req.params.to}, function (err, trips) {
+    var date_parts = date.split('-').map(function (x) { return parseInt(x, 10); });
+    var months = ['Jan', 'Feb', 'Mar', 'Apr'];
+
+    models.trip.fake({source: req.params.from, destination: req.params.to, depart: {
+        month: months[date_parts[1]],
+        day: day_parts[2]
+    }}, function (err, trips) {
         if (err)
             res.send(''+err);
         else
@@ -238,11 +248,15 @@ app.get('/flights/:from-:to/:date.json', function (req, res) {
 
 app.get('/flights/:from-:to/:date', function (req, res) {
 
+    var date_parts = req.params.date.split('-').map(function (x) { return parseInt(x, 10); });
+    var months = [null, 'Jan', 'Feb', 'Mar', 'Apr'];
+
+    var depart = months[date_parts[1]] + ' ' + date_parts[2];
 
     models.trip.fake({source: req.params.from, destination: req.params.to}, function (err, trips) {
 
         res.render('flights', {
-            itinerary: {from: 'DFW', to: 'NYC', depart: 'Mar 5'},
+            itinerary: {from: 'DFW', to: 'NYC', depart: depart},
             trips: trips.map(function (t) {
                 if (t.available < t.listed.length)
                     t.score = 0;
@@ -301,11 +315,12 @@ app.get('/blahblahblah', function (req, res) {
 
 app.get(
     '/employee/dashboard', 
-    auth.
     function (req, res) {
-        console.log('current id:' + req.session.id);
+        console.log('current id:' + req.session.current_id);
+        console.log(req.session.user);
         res.render('employee_dashboard', {
-            listings: [{available:3,capacity:100,listed:[null],id:12}]
+            listings: [], // [{available:3,capacity:100,listed:[null],id:12}],
+            user: req.session.user
         });
     });
 
@@ -463,7 +478,8 @@ app.post('/employee/login', function (req, res) {
             res.redirect('/employee/login');
         }
         else {
-            req.session.current_id = employee.id;
+            req.session.current_id = employee.email;
+            req.session.user = employee;
             res.redirect('/employee/dashboard');
         }
 
@@ -474,7 +490,7 @@ app.post('/employee/login', function (req, res) {
 app.get('/buddy', function (req, res) {
 
     res.render('buddy', {
-        // when you add a buddy -> create a sponsorship
+        user: req.session.user
     });
 });
 
@@ -492,11 +508,31 @@ app.get('/buddy/dashboard', function (req, res) {
 
 
 app.get('/buddy/login', function (req, res) {
+
     res.render('buddy_login', {
-        user: req.user,
-        flash: req.flash('')
+
     });
+
 });
+
+app.post('/buddy/login', function (req, res) {
+
+    console.log(req.body);
+    auth.buddy({email: req.body.e, password: req.body.p}, function (err, buddy) {
+        console.log('auth.buddy:complete');
+        if (err) {
+            req.flash('error', err.message);
+            res.redirect('/buddy/login');
+        }
+        else {
+            req.session.current_id = buddy.email;
+            req.session.user = buddy;
+            res.redirect('/buddy/dashboard');
+        }
+
+    });
+
+}); 
 
 app.get('/success', function (req, res) {
 
@@ -516,8 +552,27 @@ app.get('/calendar', function (req, res) {
 
 app.get('/buddies', function (req, res) {
 
-    return res.render('buddies', {
-        sponsorships: []
+    models.sponsorships.findBySponsor(req.session.user, function (err, sponsorships) {
+        if (err)
+            return res.send('err:'+err);
+
+        // console.log('sponsorships:' + sponsorships);
+        async.map(
+            sponsorships, 
+            function (sponsorship, callback) {
+                models.members.findByEmail(sponsorship.sponsored, function (err, m) {
+                    if (m)
+                        m.relation = sponsorship.relation;
+                    console.log(m);
+                    return callback(err, m);
+                });
+            },
+            function (err, sponsored) {
+                return res.render('buddies', {
+                    sponsorships: sponsored
+                });
+            });
+
     });
 
     // // get the current user
@@ -538,9 +593,9 @@ app.get('/buddies', function (req, res) {
 
 });
 
-app.post('/buddy/login', auth.authenticate({successFlash: 'Login successful!'}), function (req, res) {
-    res.redirect('/')
-});
+// app.post('/buddy/login', auth.authenticate({successFlash: 'Login successful!'}), function (req, res) {
+//     res.redirect('/')
+// });
 
 app.get('/logout', function (req, res){
   req.logout();

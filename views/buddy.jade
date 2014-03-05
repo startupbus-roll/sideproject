@@ -6,17 +6,18 @@ block content
   .container.ro-with-nav
     br
     p.lead.text-center.ro-lead-lg Add a Buddy
-    form
+    form(action="/sponsorships", method="POST")
       .ro-input-group
-        input.form-control(type='text', placeholder='Name', autofocus='')
-        input.form-control(type='email', placeholder='Email', autofocus='')
+        input.form-control(type='text', placeholder='Name', name="name")
+        input.form-control(type='email', placeholder='Email', name="email")
       // TODO: remove these brs
       br
-      select.form-control
+      select.form-control(name="relation")
         option(value='') Relationship
-        option(value='') Friend
-        option(value='') Family
+        option(value='friend') Friend
+        option(value='family') Family
       br
       br
+      input(type="hidden", name="sponsor", value="#{user.email}")
       button.btn.btn-lg.btn-primary.btn-block(type='submit') Add Buddy
 

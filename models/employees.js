@@ -23,7 +23,12 @@ function verify_employee (employee, callback) {
 }
 
 employees.findById = function (id, callback) {
-    debug('findById:', id)    
+    employees.findOne({_id: id}, function (err, employee) {
+        if (err)
+            return callback(err);
+        else
+            return callback(null, employee);
+    });
 }
 
 employees.findByEmail = function (email, callback) {

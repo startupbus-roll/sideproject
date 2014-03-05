@@ -28,7 +28,7 @@ members.findById = function (id, callback) {
 
 members.findByEmail = function (email, callback) {
     members.findOne({email: email}, function (err, member) {
-        console.log('member:' + JSON.stringify(member));
+        callback(err, member);
     });
 };
 

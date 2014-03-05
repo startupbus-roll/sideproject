@@ -6,11 +6,19 @@ block content
 		img.logo(src='assets/images/logo.png', alt='Roll Logo')
 		hr
 		.ro-tutorial
-			p.lead Welcome! Time to roll out.
-			p Sign in as an airline employee to search for standby flights and add buddies to your list.
+			p.lead Welcome to Roll!
+			p Sign in as an airline employee to search for standby flights and to add buddies.
+
+			p Sign in as a buddy after you have been added by an airline employee.
 		hr
 		
 		a.btn.btn-lg.btn-primary.btn-block(href="/employee/login") Employee
 		
 		br
 		a.btn.btn-lg.btn-primary.btn-block(href="/buddy/login") Buddy
+
+		br
+		//- hr
+		p.text-center.lead First time here?
+			br 
+			a(href="/signup") Sign up as an employee.

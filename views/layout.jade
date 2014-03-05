@@ -45,3 +45,14 @@ html.no-js <!--<![endif]-->
         block scripts
           script(type="text/javascript", src="/assets/js/vendor/jquery-1.11.0.min.js").
           script(type="text/javascript", src="/assets/js/main.js").
+
+          script.
+            $(function () {
+              $('.sye-calendar').on('click', 'td', function () {
+                $('.sye-calendar td').removeClass('success');
+                console.log('clicked', $(this));
+                $(this).toggleClass('success');
+              });
+            });
+
+
